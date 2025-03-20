@@ -39,4 +39,31 @@ export class IndexedDBService {
       }),
     );
   }
+
+  public saveAuthenticationInfo(
+    accountId?: string,
+    accountNickName?: string,
+    accessToken?: string,
+    accessTokenExpires?: string,
+  ): Observable<void> {
+    return this.dbService.getAll(WG_ACCOUNT_AUTH_COLLECTION_NAME).pipe(
+      switchMap((authInfo: any[]) => {
+        if (authInfo.length === 0) {
+          return this.dbService.add(WG_ACCOUNT_AUTH_COLLECTION_NAME, {
+            accountId,
+            accountNickName,
+            accessToken,
+            accessTokenExpires,
+          });
+        } else {
+          const authInfoItem = authInfo[0];
+          authInfoItem.accountId = accountId;
+          authInfoItem.nickname = accountNickName;
+          authInfoItem.accessToken = accessToken;
+          authInfoItem.expires = accessTokenExpires;
+          return this.dbService.update(WG_ACCOUNT_AUTH_COLLECTION_NAME, authInfoItem);
+        }
+      }),
+    );
+  }
 }

@@ -1,46 +1,43 @@
-import { Component, Signal } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { map, Observable } from 'rxjs';
-import { toSignal } from '@angular/core/rxjs-interop';
-import { JsonPipe } from '@angular/common';
+import { Component, OnDestroy, OnInit, Signal } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Subject, switchMap, takeUntil } from 'rxjs';
+import { IndexedDBService } from '../indexedDb/indexed-db.service';
 
 @Component({
   selector: 'app-wg-login-landing',
-  imports: [JsonPipe],
+  imports: [],
   templateUrl: './wg-login-landing.component.html',
   styleUrl: './wg-login-landing.component.css',
 })
-export class WgLoginLandingComponent {
-  private readonly loginParams$: Observable<{
-    status: string;
-    accessToken: string;
-    nickname: string;
-    accountId: number;
-    expiresAt: number;
-  }>;
+export class WgLoginLandingComponent implements OnInit, OnDestroy {
+  private destroy$ = new Subject<void>();
 
-  public loginParams: Signal<
-    | {
-        status: string;
-        accessToken: string;
-        nickname: string;
-        accountId: number;
-        expiresAt: number;
-      }
-    | undefined
-  >;
+  constructor(
+    private readonly route: ActivatedRoute,
+    private readonly indexedDb: IndexedDBService,
+    private readonly router: Router,
+  ) {}
 
-  constructor(private readonly route: ActivatedRoute) {
-    this.loginParams$ = this.route.queryParams.pipe(
-      map(params => ({
-        status: params['status'] as string,
-        accessToken: params['access_token'] as string,
-        nickname: params['nickname'] as string,
-        accountId: +params['account_id'],
-        expiresAt: +params['expires_at'],
-      })),
-    );
+  ngOnInit(): void {
+    this.route.queryParams
+      .pipe(
+        takeUntil(this.destroy$),
+        switchMap(params => {
+          const status = params['status'] as string;
+          const accessToken = params['access_token'] as string;
+          const nickname = params['nickname'] as string;
+          const accountId = params['account_id'] as string;
+          const expiresAt = params['expires_at'] as string;
+          return this.indexedDb.saveAuthenticationInfo(accountId, nickname, accessToken, expiresAt);
+        }),
+      )
+      .subscribe(() => {
+        this.router.navigate(['']).then(() => {});
+      });
+  }
 
-    this.loginParams = toSignal(this.loginParams$);
+  ngOnDestroy(): void {
+    this.destroy$.next();
+    this.destroy$.complete();
   }
 }

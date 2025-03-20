@@ -16,6 +16,11 @@ export class AccountComponent implements OnInit, OnDestroy {
   private refreshData = signal<boolean>(false);
 
   wgApplicationId: string | undefined = undefined;
+  nickName: string | undefined = undefined;
+  accountId: string | undefined = undefined;
+  token: string | undefined = undefined;
+  expiration: number | undefined = undefined;
+  tokenExpired: boolean = true;
 
   constructor(private indexedDb: IndexedDBService) {
     effect(() => {
@@ -26,6 +31,14 @@ export class AccountComponent implements OnInit, OnDestroy {
         .subscribe(authIno => {
           if (authIno.length > 0) {
             this.wgApplicationId = authIno[0].applicationId;
+            this.nickName = authIno[0].accountNickName;
+            this.accountId = authIno[0].accountId;
+            this.token = authIno[0].accessToken;
+            this.expiration = +(authIno[0].accessTokenExpires ?? 0);
+            if (this.expiration) {
+              const currentDate = new Date().getTime();
+              this.tokenExpired = this.expiration * 1000 <= currentDate;
+            }
           }
         });
     });
@@ -53,8 +66,7 @@ export class AccountComponent implements OnInit, OnDestroy {
     const baseUri = window.location.origin;
     // Redirect to Wargaming login page
     const url = `https://api.worldoftanks.eu/wot/auth/login/?application_id=${this.wgApplicationId}&redirect_uri=${baseUri}/login`;
-    console.log(url);
     // http://localhost:4200/login?status=ok&access_token=6d5a9176ea46f4419c2f29ff5e0bea8107e00bda&nickname=mboga&account_id=571050560&expires_at=1743691243
-    // window.location.href = url;
+    window.location.href = url;
   }
 }
