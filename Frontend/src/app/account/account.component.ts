@@ -3,8 +3,6 @@ import { MatFormField, MatInput, MatLabel } from '@angular/material/input';
 import { MatButton } from '@angular/material/button';
 import { FormsModule } from '@angular/forms';
 import { IndexedDBService } from '../indexedDb/indexed-db.service';
-import { toSignal } from '@angular/core/rxjs-interop';
-import { AccountAuthenticationInfo } from '../model/account-authentication-info';
 import { Subject, takeUntil } from 'rxjs';
 
 @Component({
@@ -51,5 +49,12 @@ export class AccountComponent implements OnInit, OnDestroy {
     }
   }
 
-  public logIn() {}
+  public logIn() {
+    const baseUri = window.location.origin;
+    // Redirect to Wargaming login page
+    const url = `https://api.worldoftanks.eu/wot/auth/login/?application_id=${this.wgApplicationId}&redirect_uri=${baseUri}/login`;
+    console.log(url);
+    // http://localhost:4200/login?status=ok&access_token=6d5a9176ea46f4419c2f29ff5e0bea8107e00bda&nickname=mboga&account_id=571050560&expires_at=1743691243
+    // window.location.href = url;
+  }
 }
