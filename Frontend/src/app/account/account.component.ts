@@ -1,4 +1,4 @@
-import { Component, effect, OnDestroy, OnInit, signal, Signal } from '@angular/core';
+import { Component, effect, OnDestroy, OnInit, signal } from '@angular/core';
 import { MatFormField, MatInput, MatLabel } from '@angular/material/input';
 import { MatButton } from '@angular/material/button';
 import { FormsModule } from '@angular/forms';
@@ -65,8 +65,6 @@ export class AccountComponent implements OnInit, OnDestroy {
   public logIn() {
     const baseUri = window.location.origin;
     // Redirect to Wargaming login page
-    const url = `https://api.worldoftanks.eu/wot/auth/login/?application_id=${this.wgApplicationId}&redirect_uri=${baseUri}/login`;
-    // http://localhost:4200/login?status=ok&access_token=6d5a9176ea46f4419c2f29ff5e0bea8107e00bda&nickname=mboga&account_id=571050560&expires_at=1743691243
-    window.location.href = url;
+    window.location.href = `https://api.worldoftanks.eu/wot/auth/login/?application_id=${this.wgApplicationId}&redirect_uri=${baseUri}/login`;
   }
 }
