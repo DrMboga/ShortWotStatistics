@@ -1,5 +1,8 @@
-<mat-form-field>
-  <mat-label>WG ApplicationId</mat-label>
-  <input matInput [(ngModel)]="wgApplicationId">
-</mat-form-field>
-<button mat-flat-button (click)="logIn()" >Login</button>
+<div class="form-row">
+  <mat-form-field>
+    <mat-label>WG ApplicationId</mat-label>
+    <input matInput [(ngModel)]="wgApplicationId">
+  </mat-form-field>
+  <button mat-flat-button (click)="saveApplicationId()">Save</button>
+</div>
+<button mat-flat-button (click)="logIn()">Login</button>

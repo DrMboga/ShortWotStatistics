@@ -5,7 +5,16 @@
   margin: 100px;
   gap: 5px;
 
-  mat-form-field {
-    width: 40%;
+  .form-row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 5px;
+
+    mat-form-field {
+      width: 400px;
+    }
   }
+
+
 }
