@@ -19,11 +19,7 @@ export class AccountComponent implements OnInit, OnDestroy {
 
   wgApplicationId: string | undefined = undefined;
 
-  accountsAuthInfo: Signal<AccountAuthenticationInfo[] | undefined>;
-
   constructor(private indexedDb: IndexedDBService) {
-    this.accountsAuthInfo = toSignal(indexedDb.getAccountsAuthInfo());
-
     effect(() => {
       const refreshed = this.refreshData();
       this.indexedDb
