@@ -5,18 +5,12 @@
   },
   "data": {
     "599488537": {
+      "nickname": "Mboga_90277267",
       "games": [
         "wot",
         "wotb"
       ],
-      "created_at": 1666878036,
-      "nickname": "Mboga_90277267",
-      "account_id": 599488537,
-      "private": {
-        "premium_expires_at": 0,
-        "free_xp": 6128,
-        "gold": 1030
-      }
+      "account_id": 599488537
     }
   }
 }

@@ -4,7 +4,7 @@
 
 ### Account information
 
-https://api.worldoftanks.eu/wgn/account/info/?application_id=7026c24084fc704a9b73d8b35c5ff45a&account_id=599488537&access_token=853bc77ad4db9da89c16386962e624baa6ac1d88&language=ru
+https://api.worldoftanks.eu/wgn/account/info/?application_id=7026c24084fc704a9b73d8b35c5ff45a&account_id=599488537&language=ru&fields=nickname%2Cgames%2Caccount_id&access_token=853bc77ad4db9da89c16386962e624baa6ac1d88
 
 ---
 
