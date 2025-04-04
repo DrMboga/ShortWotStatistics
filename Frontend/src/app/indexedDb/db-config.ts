@@ -15,7 +15,7 @@ const accountTokenMeta = {
 };
 
 export const dbConfig: DBConfig = {
-  name: 'WotBlitzStatistics',
+  name: 'WotStatistics',
   version: 1,
   objectStoresMeta: [accountTokenMeta],
 };
