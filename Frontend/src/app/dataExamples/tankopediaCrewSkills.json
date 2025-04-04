@@ -1,0 +1,348 @@
+{
+  "status": "ok",
+  "meta": {
+    "count": 34
+  },
+  "data": {
+    "repair": {
+      "is_perk": false,
+      "skill": "repair",
+      "image_url": {
+        "small_icon": "http:\/\/api.worldoftanks.eu\/static\/2.76.0\/wot\/encyclopedia\/tankmen\/skills\/small\/repair.png",
+        "big_icon": "http:\/\/api.worldoftanks.eu\/static\/2.76.0\/wot\/encyclopedia\/tankmen\/skills\/big\/repair.png"
+      },
+      "name": "Ремонт",
+      "description": "Ускоряет ремонт повреждённых модулей."
+    },
+    "driver_badRoadsKing": {
+      "is_perk": false,
+      "skill": "driver_badRoadsKing",
+      "image_url": {
+        "small_icon": "http:\/\/api.worldoftanks.eu\/static\/2.76.0\/wot\/encyclopedia\/tankmen\/skills\/small\/driver_badRoadsKing.png",
+        "big_icon": "http:\/\/api.worldoftanks.eu\/static\/2.76.0\/wot\/encyclopedia\/tankmen\/skills\/big\/driver_badRoadsKing.png"
+      },
+      "name": "Король бездорожья",
+      "description": null
+    },
+    "driver_smoothDriving": {
+      "is_perk": false,
+      "skill": "driver_smoothDriving",
+      "image_url": {
+        "small_icon": "http:\/\/api.worldoftanks.eu\/static\/2.76.0\/wot\/encyclopedia\/tankmen\/skills\/small\/driver_smoothDriving.png",
+        "big_icon": "http:\/\/api.worldoftanks.eu\/static\/2.76.0\/wot\/encyclopedia\/tankmen\/skills\/big\/driver_smoothDriving.png"
+      },
+      "name": "Плавный ход",
+      "description": "Снижает разброс при стрельбе на ходу."
+    },
+    "gunner_focus": {
+      "is_perk": false,
+      "skill": "gunner_focus",
+      "image_url": {
+        "small_icon": "http:\/\/api.worldoftanks.eu\/static\/2.76.0\/wot\/encyclopedia\/tankmen\/skills\/small\/gunner_focus.png",
+        "big_icon": "http:\/\/api.worldoftanks.eu\/static\/2.76.0\/wot\/encyclopedia\/tankmen\/skills\/big\/gunner_focus.png"
+      },
+      "name": "Концентрация",
+      "description": "Снижает разброс орудия неподвижно стоящей машины."
+    },
+    "commander_practical": {
+      "is_perk": false,
+      "skill": "commander_practical",
+      "image_url": {
+        "small_icon": "http:\/\/api.worldoftanks.eu\/static\/2.76.0\/wot\/encyclopedia\/tankmen\/skills\/small\/commander_practical.png",
+        "big_icon": "http:\/\/api.worldoftanks.eu\/static\/2.76.0\/wot\/encyclopedia\/tankmen\/skills\/big\/commander_practical.png"
+      },
+      "name": "Практичность",
+      "description": "Снижает время подготовки снаряжения."
+    },
+    "gunner_armorer": {
+      "is_perk": false,
+      "skill": "gunner_armorer",
+      "image_url": {
+        "small_icon": "http:\/\/api.worldoftanks.eu\/static\/2.76.0\/wot\/encyclopedia\/tankmen\/skills\/small\/gunner_armorer.png",
+        "big_icon": "http:\/\/api.worldoftanks.eu\/static\/2.76.0\/wot\/encyclopedia\/tankmen\/skills\/big\/gunner_armorer.png"
+      },
+      "name": "Мастер-оружейник",
+      "description": null
+    },
+    "loader_desperado": {
+      "is_perk": false,
+      "skill": "loader_desperado",
+      "image_url": {
+        "small_icon": "http:\/\/api.worldoftanks.eu\/static\/2.76.0\/wot\/encyclopedia\/tankmen\/skills\/small\/loader_desperado.png",
+        "big_icon": "http:\/\/api.worldoftanks.eu\/static\/2.76.0\/wot\/encyclopedia\/tankmen\/skills\/big\/loader_desperado.png"
+      },
+      "name": "Отчаянный",
+      "description": "Ускоряет перезарядку орудия, если у машины остаётся менее 25% прочности."
+    },
+    "driver_reliablePlacement": {
+      "is_perk": false,
+      "skill": "driver_reliablePlacement",
+      "image_url": {
+        "small_icon": "http:\/\/api.worldoftanks.eu\/static\/2.76.0\/wot\/encyclopedia\/tankmen\/skills\/small\/driver_reliablePlacement.png",
+        "big_icon": "http:\/\/api.worldoftanks.eu\/static\/2.76.0\/wot\/encyclopedia\/tankmen\/skills\/big\/driver_reliablePlacement.png"
+      },
+      "name": "Наладка агрегатов",
+      "description": null
+    },
+    "driver_virtuoso": {
+      "is_perk": false,
+      "skill": "driver_virtuoso",
+      "image_url": {
+        "small_icon": "http:\/\/api.worldoftanks.eu\/static\/2.76.0\/wot\/encyclopedia\/tankmen\/skills\/small\/driver_virtuoso.png",
+        "big_icon": "http:\/\/api.worldoftanks.eu\/static\/2.76.0\/wot\/encyclopedia\/tankmen\/skills\/big\/driver_virtuoso.png"
+      },
+      "name": "Виртуоз",
+      "description": "Повышает скорость поворота машины."
+    },
+    "commander_tutor": {
+      "is_perk": false,
+      "skill": "commander_tutor",
+      "image_url": {
+        "small_icon": "http:\/\/api.worldoftanks.eu\/static\/2.76.0\/wot\/encyclopedia\/tankmen\/skills\/small\/commander_tutor.png",
+        "big_icon": "http:\/\/api.worldoftanks.eu\/static\/2.76.0\/wot\/encyclopedia\/tankmen\/skills\/big\/commander_tutor.png"
+      },
+      "name": "Наставник",
+      "description": "Командир может заменить раненого члена экипажа."
+    },
+    "commander_enemyShotPredictor": {
+      "is_perk": false,
+      "skill": "commander_enemyShotPredictor",
+      "image_url": {
+        "small_icon": "http:\/\/api.worldoftanks.eu\/static\/2.76.0\/wot\/encyclopedia\/tankmen\/skills\/small\/commander_enemyShotPredictor.png",
+        "big_icon": "http:\/\/api.worldoftanks.eu\/static\/2.76.0\/wot\/encyclopedia\/tankmen\/skills\/big\/commander_enemyShotPredictor.png"
+      },
+      "name": "Звуковая разведка",
+      "description": "Предупреждает о выстреле САУ противника."
+    },
+    "gunner_rancorous": {
+      "is_perk": false,
+      "skill": "gunner_rancorous",
+      "image_url": {
+        "small_icon": "http:\/\/api.worldoftanks.eu\/static\/2.76.0\/wot\/encyclopedia\/tankmen\/skills\/small\/gunner_rancorous.png",
+        "big_icon": "http:\/\/api.worldoftanks.eu\/static\/2.76.0\/wot\/encyclopedia\/tankmen\/skills\/big\/gunner_rancorous.png"
+      },
+      "name": "Злопамятный",
+      "description": "Увеличивает время до исчезновения машины противника из зоны видимости наводчика и позволяет ему определять повреждённые модули цели."
+    },
+    "fireFighting": {
+      "is_perk": false,
+      "skill": "fireFighting",
+      "image_url": {
+        "small_icon": "http:\/\/api.worldoftanks.eu\/static\/2.76.0\/wot\/encyclopedia\/tankmen\/skills\/small\/fireFighting.png",
+        "big_icon": "http:\/\/api.worldoftanks.eu\/static\/2.76.0\/wot\/encyclopedia\/tankmen\/skills\/big\/fireFighting.png"
+      },
+      "name": null,
+      "description": null
+    },
+    "radioman_interference": {
+      "is_perk": false,
+      "skill": "radioman_interference",
+      "image_url": {
+        "small_icon": "http:\/\/api.worldoftanks.eu\/static\/2.76.0\/wot\/encyclopedia\/tankmen\/skills\/small\/radioman_interference.png",
+        "big_icon": "http:\/\/api.worldoftanks.eu\/static\/2.76.0\/wot\/encyclopedia\/tankmen\/skills\/big\/radioman_interference.png"
+      },
+      "name": "Постановка помех",
+      "description": "Уменьшает время до исчезновения машины из зоны видимости противника."
+    },
+    "driver_motorExpert": {
+      "is_perk": false,
+      "skill": "driver_motorExpert",
+      "image_url": {
+        "small_icon": "http:\/\/api.worldoftanks.eu\/static\/2.76.0\/wot\/encyclopedia\/tankmen\/skills\/small\/driver_motorExpert.png",
+        "big_icon": "http:\/\/api.worldoftanks.eu\/static\/2.76.0\/wot\/encyclopedia\/tankmen\/skills\/big\/driver_motorExpert.png"
+      },
+      "name": "Знаток моторов",
+      "description": "Штраф за повреждённый двигатель снижен."
+    },
+    "loader_intuition": {
+      "is_perk": false,
+      "skill": "loader_intuition",
+      "image_url": {
+        "small_icon": "http:\/\/api.worldoftanks.eu\/static\/2.76.0\/wot\/encyclopedia\/tankmen\/skills\/small\/loader_intuition.png",
+        "big_icon": "http:\/\/api.worldoftanks.eu\/static\/2.76.0\/wot\/encyclopedia\/tankmen\/skills\/big\/loader_intuition.png"
+      },
+      "name": "Интуиция",
+      "description": "Значительно повышает скорость смены типа снаряда в заряженном орудии."
+    },
+    "camouflage": {
+      "is_perk": false,
+      "skill": "camouflage",
+      "image_url": {
+        "small_icon": "http:\/\/api.worldoftanks.eu\/static\/2.76.0\/wot\/encyclopedia\/tankmen\/skills\/small\/camouflage.png",
+        "big_icon": "http:\/\/api.worldoftanks.eu\/static\/2.76.0\/wot\/encyclopedia\/tankmen\/skills\/big\/camouflage.png"
+      },
+      "name": "Маскировка",
+      "description": "Повышает базовую незаметность машины."
+    },
+    "loader_perfectCharge": {
+      "is_perk": false,
+      "skill": "loader_perfectCharge",
+      "image_url": {
+        "small_icon": "http:\/\/api.worldoftanks.eu\/static\/2.76.0\/wot\/encyclopedia\/tankmen\/skills\/small\/loader_perfectCharge.png",
+        "big_icon": "http:\/\/api.worldoftanks.eu\/static\/2.76.0\/wot\/encyclopedia\/tankmen\/skills\/big\/loader_perfectCharge.png"
+      },
+      "name": "Идеальный выстрел",
+      "description": null
+    },
+    "radioman_sideBySide": {
+      "is_perk": false,
+      "skill": "radioman_sideBySide",
+      "image_url": {
+        "small_icon": "http:\/\/api.worldoftanks.eu\/static\/2.76.0\/wot\/encyclopedia\/tankmen\/skills\/small\/radioman_sideBySide.png",
+        "big_icon": "http:\/\/api.worldoftanks.eu\/static\/2.76.0\/wot\/encyclopedia\/tankmen\/skills\/big\/radioman_sideBySide.png"
+      },
+      "name": "Спина к спине",
+      "description": "Повышает эффективность экипажа."
+    },
+    "commander_coordination": {
+      "is_perk": false,
+      "skill": "commander_coordination",
+      "image_url": {
+        "small_icon": "http:\/\/api.worldoftanks.eu\/static\/2.76.0\/wot\/encyclopedia\/tankmen\/skills\/small\/commander_coordination.png",
+        "big_icon": "http:\/\/api.worldoftanks.eu\/static\/2.76.0\/wot\/encyclopedia\/tankmen\/skills\/big\/commander_coordination.png"
+      },
+      "name": "Координация",
+      "description": "Скорость сведения увеличена."
+    },
+    "loader_pedant": {
+      "is_perk": false,
+      "skill": "loader_pedant",
+      "image_url": {
+        "small_icon": "http:\/\/api.worldoftanks.eu\/static\/2.76.0\/wot\/encyclopedia\/tankmen\/skills\/small\/loader_pedant.png",
+        "big_icon": "http:\/\/api.worldoftanks.eu\/static\/2.76.0\/wot\/encyclopedia\/tankmen\/skills\/big\/loader_pedant.png"
+      },
+      "name": "Бесконтактная боеукладка",
+      "description": "Увеличивает прочность боеукладки."
+    },
+    "commander_sixthSense": {
+      "is_perk": false,
+      "skill": "commander_sixthSense",
+      "image_url": {
+        "small_icon": "http:\/\/api.worldoftanks.eu\/static\/2.76.0\/wot\/encyclopedia\/tankmen\/skills\/small\/commander_sixthSense.png",
+        "big_icon": "http:\/\/api.worldoftanks.eu\/static\/2.76.0\/wot\/encyclopedia\/tankmen\/skills\/big\/commander_sixthSense.png"
+      },
+      "name": "Шестое чувство",
+      "description": "Позволяет командиру определить, обнаружена ли его машина противником."
+    },
+    "driver_rammingMaster": {
+      "is_perk": false,
+      "skill": "driver_rammingMaster",
+      "image_url": {
+        "small_icon": "http:\/\/api.worldoftanks.eu\/static\/2.76.0\/wot\/encyclopedia\/tankmen\/skills\/small\/driver_rammingMaster.png",
+        "big_icon": "http:\/\/api.worldoftanks.eu\/static\/2.76.0\/wot\/encyclopedia\/tankmen\/skills\/big\/driver_rammingMaster.png"
+      },
+      "name": "Мастер тарана",
+      "description": "Уменьшает повреждения собственной техники и увеличивает повреждения машины противника при таране."
+    },
+    "loader_ammunitionImprove": {
+      "is_perk": false,
+      "skill": "loader_ammunitionImprove",
+      "image_url": {
+        "small_icon": "http:\/\/api.worldoftanks.eu\/static\/2.76.0\/wot\/encyclopedia\/tankmen\/skills\/small\/loader_ammunitionImprove.png",
+        "big_icon": "http:\/\/api.worldoftanks.eu\/static\/2.76.0\/wot\/encyclopedia\/tankmen\/skills\/big\/loader_ammunitionImprove.png"
+      },
+      "name": "Улучшенные боеприпасы",
+      "description": "Повышает показатели среднего урона и бронепробития."
+    },
+    "brotherhood": {
+      "is_perk": false,
+      "skill": "brotherhood",
+      "image_url": {
+        "small_icon": "http:\/\/api.worldoftanks.eu\/static\/2.76.0\/wot\/encyclopedia\/tankmen\/skills\/small\/brotherhood.png",
+        "big_icon": "http:\/\/api.worldoftanks.eu\/static\/2.76.0\/wot\/encyclopedia\/tankmen\/skills\/big\/brotherhood.png"
+      },
+      "name": "Боевое братство",
+      "description": "Повышает общую эффективность экипажа."
+    },
+    "radioman_expert": {
+      "is_perk": false,
+      "skill": "radioman_expert",
+      "image_url": {
+        "small_icon": "http:\/\/api.worldoftanks.eu\/static\/2.76.0\/wot\/encyclopedia\/tankmen\/skills\/small\/radioman_expert.png",
+        "big_icon": "http:\/\/api.worldoftanks.eu\/static\/2.76.0\/wot\/encyclopedia\/tankmen\/skills\/big\/radioman_expert.png"
+      },
+      "name": "Связной",
+      "description": "Повышает эффективность экипажа."
+    },
+    "commander_eagleEye": {
+      "is_perk": false,
+      "skill": "commander_eagleEye",
+      "image_url": {
+        "small_icon": "http:\/\/api.worldoftanks.eu\/static\/2.76.0\/wot\/encyclopedia\/tankmen\/skills\/small\/commander_eagleEye.png",
+        "big_icon": "http:\/\/api.worldoftanks.eu\/static\/2.76.0\/wot\/encyclopedia\/tankmen\/skills\/big\/commander_eagleEye.png"
+      },
+      "name": "Орлиный глаз",
+      "description": "Улучшает обзор, особенно при неисправности приборов наблюдения."
+    },
+    "commander_emergency": {
+      "is_perk": false,
+      "skill": "commander_emergency",
+      "image_url": {
+        "small_icon": "http:\/\/api.worldoftanks.eu\/static\/2.76.0\/wot\/encyclopedia\/tankmen\/skills\/small\/commander_emergency.png",
+        "big_icon": "http:\/\/api.worldoftanks.eu\/static\/2.76.0\/wot\/encyclopedia\/tankmen\/skills\/big\/commander_emergency.png"
+      },
+      "name": "Крайние меры",
+      "description": "Бонус к эффективности экипажа увеличен."
+    },
+    "radioman_finder": {
+      "is_perk": false,
+      "skill": "radioman_finder",
+      "image_url": {
+        "small_icon": "http:\/\/api.worldoftanks.eu\/static\/2.76.0\/wot\/encyclopedia\/tankmen\/skills\/small\/radioman_finder.png",
+        "big_icon": "http:\/\/api.worldoftanks.eu\/static\/2.76.0\/wot\/encyclopedia\/tankmen\/skills\/big\/radioman_finder.png"
+      },
+      "name": "Радиоперехват",
+      "description": "Улучшает обзор."
+    },
+    "gunner_sniper": {
+      "is_perk": false,
+      "skill": "gunner_sniper",
+      "image_url": {
+        "small_icon": "http:\/\/api.worldoftanks.eu\/static\/2.76.0\/wot\/encyclopedia\/tankmen\/skills\/small\/gunner_sniper.png",
+        "big_icon": "http:\/\/api.worldoftanks.eu\/static\/2.76.0\/wot\/encyclopedia\/tankmen\/skills\/big\/gunner_sniper.png"
+      },
+      "name": "Снайпер",
+      "description": null
+    },
+    "loader_melee": {
+      "is_perk": false,
+      "skill": "loader_melee",
+      "image_url": {
+        "small_icon": "http:\/\/api.worldoftanks.eu\/static\/2.76.0\/wot\/encyclopedia\/tankmen\/skills\/small\/loader_melee.png",
+        "big_icon": "http:\/\/api.worldoftanks.eu\/static\/2.76.0\/wot\/encyclopedia\/tankmen\/skills\/big\/loader_melee.png"
+      },
+      "name": "Ближний бой",
+      "description": "Ускоряет перезарядку орудия в ближнем бою."
+    },
+    "radioman_signalInterception": {
+      "is_perk": false,
+      "skill": "radioman_signalInterception",
+      "image_url": {
+        "small_icon": "http:\/\/api.worldoftanks.eu\/static\/2.76.0\/wot\/encyclopedia\/tankmen\/skills\/small\/radioman_signalInterception.png",
+        "big_icon": "http:\/\/api.worldoftanks.eu\/static\/2.76.0\/wot\/encyclopedia\/tankmen\/skills\/big\/radioman_signalInterception.png"
+      },
+      "name": "Перехват сигнала",
+      "description": null
+    },
+    "gunner_quickAiming": {
+      "is_perk": false,
+      "skill": "gunner_quickAiming",
+      "image_url": {
+        "small_icon": "http:\/\/api.worldoftanks.eu\/static\/2.76.0\/wot\/encyclopedia\/tankmen\/skills\/small\/gunner_quickAiming.png",
+        "big_icon": "http:\/\/api.worldoftanks.eu\/static\/2.76.0\/wot\/encyclopedia\/tankmen\/skills\/big\/gunner_quickAiming.png"
+      },
+      "name": "Быстрое сведение",
+      "description": "Скорость сведения увеличена."
+    },
+    "gunner_smoothTurret": {
+      "is_perk": false,
+      "skill": "gunner_smoothTurret",
+      "image_url": {
+        "small_icon": "http:\/\/api.worldoftanks.eu\/static\/2.76.0\/wot\/encyclopedia\/tankmen\/skills\/small\/gunner_smoothTurret.png",
+        "big_icon": "http:\/\/api.worldoftanks.eu\/static\/2.76.0\/wot\/encyclopedia\/tankmen\/skills\/big\/gunner_smoothTurret.png"
+      },
+      "name": "Плавный поворот башни",
+      "description": "Снижает разброс при повороте башни."
+    }
+  }
+}
