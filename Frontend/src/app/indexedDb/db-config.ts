@@ -11,6 +11,7 @@ const accountTokenMeta = {
     { name: 'nickname', keypath: 'nickname', options: { unique: true } },
     { name: 'accessToken', keypath: 'accessToken', options: { unique: true } },
     { name: 'expires', keypath: 'expires', options: { unique: true } },
+    { name: 'games', keypath: 'games', options: { unique: true } },
   ],
 };
 

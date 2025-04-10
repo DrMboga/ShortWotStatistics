@@ -4,11 +4,13 @@ import { provideRouter } from '@angular/router';
 import { routes } from './app.routes';
 import { provideIndexedDb } from 'ngx-indexed-db';
 import { dbConfig } from './indexedDb/db-config';
+import { provideHttpClient } from '@angular/common/http';
 
 export const appConfig: ApplicationConfig = {
   providers: [
     provideZoneChangeDetection({ eventCoalescing: true }),
     provideRouter(routes),
     provideIndexedDb(dbConfig),
+    provideHttpClient(),
   ],
 };

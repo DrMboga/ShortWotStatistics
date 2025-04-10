@@ -4,4 +4,5 @@ export interface AccountAuthenticationInfo {
   accountNickName?: string;
   accessToken?: string;
   accessTokenExpires?: number;
+  games?: string[];
 }

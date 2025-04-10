@@ -1,5 +1,9 @@
-@if (!loggedIn())
-{
+@if (!loggedIn()) {
   <app-login></app-login>
 }
-<p>Nick: {{accountStore.accountNickName()}}</p>
+<p>Nick: {{ accountStore.accountNickName() }}</p>
+
+@for (game of accountStore.games(); track game){
+  <p>{{game}}</p>
+}
+

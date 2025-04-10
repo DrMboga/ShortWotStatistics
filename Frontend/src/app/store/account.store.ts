@@ -19,6 +19,7 @@ type AccountState = {
   accountNickName: string;
   accessToken?: string;
   accessTokenExpires?: number;
+  games: string[];
 };
 
 const initialState: AccountState = {
@@ -26,6 +27,7 @@ const initialState: AccountState = {
   accountId: '',
   accountNickName: '',
   accessTokenExpires: 0,
+  games: [],
 };
 
 export const AccountStore = signalStore(
@@ -44,6 +46,7 @@ export const AccountStore = signalStore(
               accountNickName: accountAuthInfo[0].accountNickName,
               accessToken: accountAuthInfo[0].accessToken,
               accessTokenExpires: accountAuthInfo[0].accessTokenExpires,
+              games: accountAuthInfo[0].games ?? [],
             }));
           }
         });
@@ -105,6 +108,21 @@ export const AccountStore = signalStore(
                 },
               }),
             );
+        }),
+      ),
+    ),
+    setAccountGamesInfo: rxMethod<string[]>(
+      pipe(
+        switchMap(games => {
+          return indexedDb.saveGamesInfo(store.accountId(), games).pipe(
+            tapResponse({
+              next: () => patchState(store, () => ({ games })),
+              error: err => {
+                patchState(store, () => ({ games: [] }));
+                console.error(err);
+              },
+            }),
+          );
         }),
       ),
     ),

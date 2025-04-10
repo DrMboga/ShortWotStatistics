@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { NgxIndexedDBService } from 'ngx-indexed-db';
-import { map, Observable, switchMap } from 'rxjs';
+import { map, Observable, of, switchMap } from 'rxjs';
 import { AccountAuthenticationInfo } from '../model/account-authentication-info';
 import { WG_ACCOUNT_AUTH_COLLECTION_NAME } from './db-config';
 
@@ -8,7 +8,7 @@ import { WG_ACCOUNT_AUTH_COLLECTION_NAME } from './db-config';
   providedIn: 'root',
 })
 export class IndexedDBService {
-  constructor(private dbService: NgxIndexedDBService) {}
+  constructor(private readonly dbService: NgxIndexedDBService) {}
 
   public getAccountsAuthInfo(): Observable<AccountAuthenticationInfo[]> {
     return this.dbService.getAll(WG_ACCOUNT_AUTH_COLLECTION_NAME).pipe(
@@ -19,6 +19,7 @@ export class IndexedDBService {
           accountNickName: authInfoItem.nickname,
           accessToken: authInfoItem.accessToken,
           accessTokenExpires: +authInfoItem?.expires,
+          games: authInfoItem.games,
         }));
       }),
     );
@@ -63,6 +64,19 @@ export class IndexedDBService {
           authInfoItem.expires = accessTokenExpires;
           return this.dbService.update(WG_ACCOUNT_AUTH_COLLECTION_NAME, authInfoItem);
         }
+      }),
+    );
+  }
+
+  public saveGamesInfo(accountId: string, games: string[]): Observable<void> {
+    return this.dbService.getAll(WG_ACCOUNT_AUTH_COLLECTION_NAME).pipe(
+      switchMap((authInfo: any[]) => {
+        const authInfoItem = authInfo.find(a => a.accountId === accountId);
+        if (authInfoItem) {
+          authInfoItem.games = games;
+          return this.dbService.update(WG_ACCOUNT_AUTH_COLLECTION_NAME, authInfoItem);
+        }
+        return of();
       }),
     );
   }
