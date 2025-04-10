@@ -1,7 +1,7 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, inject, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Subject, switchMap, takeUntil } from 'rxjs';
-import { IndexedDBService } from '../indexedDb/indexed-db.service';
+import { Subject, takeUntil, tap } from 'rxjs';
+import { AccountStore } from '../store/account.store';
 
 @Component({
   selector: 'app-wg-login-landing',
@@ -10,25 +10,30 @@ import { IndexedDBService } from '../indexedDb/indexed-db.service';
   styleUrl: './wg-login-landing.component.css',
 })
 export class WgLoginLandingComponent implements OnInit, OnDestroy {
-  private destroy$ = new Subject<void>();
+  private readonly accountStore = inject(AccountStore);
+  private readonly route = inject(ActivatedRoute);
+  private readonly router = inject(Router);
 
-  constructor(
-    private readonly route: ActivatedRoute,
-    private readonly indexedDb: IndexedDBService,
-    private readonly router: Router,
-  ) {}
+  private readonly destroy$ = new Subject<void>();
 
   ngOnInit(): void {
     this.route.queryParams
       .pipe(
         takeUntil(this.destroy$),
-        switchMap(params => {
+        tap(params => {
           const status = params['status'] as string;
           const accessToken = params['access_token'] as string;
-          const nickname = params['nickname'] as string;
+          const accountNickName = params['nickname'] as string;
           const accountId = params['account_id'] as string;
-          const expiresAt = params['expires_at'] as string;
-          return this.indexedDb.saveAuthenticationInfo(accountId, nickname, accessToken, expiresAt);
+          const accessTokenExpires = params['expires_at'] as string;
+          if (status === 'ok') {
+            this.accountStore.setAuthenticationInfo({
+              accountId,
+              accountNickName,
+              accessToken,
+              accessTokenExpires,
+            });
+          }
         }),
       )
       .subscribe(() => {

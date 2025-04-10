@@ -1,70 +1,15 @@
-import { Component, effect, OnDestroy, OnInit, signal } from '@angular/core';
-import { MatFormField, MatInput, MatLabel } from '@angular/material/input';
-import { MatButton } from '@angular/material/button';
+import { Component, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { IndexedDBService } from '../indexedDb/indexed-db.service';
-import { Subject, takeUntil } from 'rxjs';
+import { AccountStore } from '../store/account.store';
+import { LoginComponent } from '../components/login/login.component';
 
 @Component({
   selector: 'app-account',
-  imports: [MatFormField, MatLabel, MatInput, MatButton, FormsModule],
+  imports: [FormsModule, LoginComponent],
   templateUrl: './account.component.html',
   styleUrl: './account.component.css',
 })
-export class AccountComponent implements OnInit, OnDestroy {
-  private destroy$ = new Subject<void>();
-  private refreshData = signal<boolean>(false);
-
-  wgApplicationId: string | undefined = undefined;
-  nickName: string | undefined = undefined;
-  accountId: string | undefined = undefined;
-  token: string | undefined = undefined;
-  expiration: number | undefined = undefined;
-  tokenExpired: boolean = true;
-
-  constructor(private indexedDb: IndexedDBService) {
-    effect(() => {
-      const refreshed = this.refreshData();
-      this.indexedDb
-        .getAccountsAuthInfo()
-        .pipe(takeUntil(this.destroy$))
-        .subscribe(authIno => {
-          if (authIno.length > 0) {
-            this.wgApplicationId = authIno[0].applicationId;
-            this.nickName = authIno[0].accountNickName;
-            this.accountId = authIno[0].accountId;
-            this.token = authIno[0].accessToken;
-            this.expiration = +(authIno[0].accessTokenExpires ?? 0);
-            if (this.expiration) {
-              const currentDate = new Date().getTime();
-              this.tokenExpired = this.expiration * 1000 <= currentDate;
-            }
-          }
-        });
-    });
-  }
-
-  ngOnInit(): void {
-    this.refreshData.set(!this.refreshData());
-  }
-
-  ngOnDestroy(): void {
-    this.destroy$.next();
-    this.destroy$.complete();
-  }
-
-  public saveApplicationId() {
-    if (this.wgApplicationId) {
-      this.indexedDb
-        .saveApplicationId(this.wgApplicationId)
-        .pipe(takeUntil(this.destroy$))
-        .subscribe(() => this.refreshData.set(!this.refreshData()));
-    }
-  }
-
-  public logIn() {
-    const baseUri = window.location.origin;
-    // Redirect to Wargaming login page
-    window.location.href = `https://api.worldoftanks.eu/wot/auth/login/?application_id=${this.wgApplicationId}&redirect_uri=${baseUri}/login`;
-  }
+export class AccountComponent {
+  readonly accountStore = inject(AccountStore);
+  readonly loggedIn = this.accountStore.loggedIn;
 }

@@ -1,14 +1,5 @@
-@if(tokenExpired) {
-  <div class="form-row">
-    <mat-form-field>
-      <mat-label>WG ApplicationId</mat-label>
-      <input matInput [(ngModel)]="wgApplicationId">
-    </mat-form-field>
-    <button mat-flat-button (click)="saveApplicationId()">Save</button>
-  </div>
-  @if(wgApplicationId) {
-    <button mat-flat-button (click)="logIn()">Login</button>
-  }
-} @else {
-  <h3>{{nickName}}</h3>
+@if (!loggedIn())
+{
+  <app-login></app-login>
 }
+<p>Nick: {{accountStore.accountNickName()}}</p>
