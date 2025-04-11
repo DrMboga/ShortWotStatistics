@@ -1,4 +1,4 @@
-import { Component, computed, effect, inject } from '@angular/core';
+import { Component, computed, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { AccountStore } from '../store/account.store';
 import { LoginComponent } from '../components/login/login.component';
