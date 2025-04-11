@@ -1,9 +1,14 @@
 <mat-toolbar>
   <div class="flex-container">
-    <span>WoT statistics</span>
+    <span routerLink="/">{{ title() }}</span>
     <div class="button-row">
-      <app-nav-button routerLink="/account" icon="person" label="Account"></app-nav-button>
+      @if (hasWotAccount()) {
+        <app-nav-button routerLink="/wot-account" icon="assets/account/wtrIcon_24.png" label="WoT"></app-nav-button>
+      }
+      @if (hasBlitzAccount()) {
+        <app-nav-button routerLink="/blitz-account" icon="assets/account/blitzIcon.png" label="Blitz"></app-nav-button>
+      }
     </div>
   </div>
 </mat-toolbar>
-<router-outlet />
+<router-outlet/>
