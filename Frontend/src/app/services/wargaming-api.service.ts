@@ -2,6 +2,7 @@ import { inject, Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { map, Observable } from 'rxjs';
 import { CommonAccountInfoResponse } from '../model/wargaming/commonAccountInfoResponse';
+import { WotPlayerPersonalData } from '../model/wargaming/wotPlayerPersonalData';
 
 @Injectable({
   providedIn: 'root',
@@ -20,6 +21,24 @@ export class WargamingApiService {
     return this.http.get(url).pipe(
       map((response: any) => {
         return response.data[accountId] as CommonAccountInfoResponse;
+      }),
+    );
+  }
+
+  public getPlayerPersonalData(
+    applicationId: string,
+    accountId: string,
+    accessToken: string,
+    language: string = 'ru',
+  ): Observable<WotPlayerPersonalData> {
+    const urlParams = this.buildQueryParams(applicationId, accountId, accessToken, language);
+    // TODO: Remove json from assets
+    // const url = '../assets/playerPersonalData.json';
+
+    const url = `https://api.worldoftanks.eu/wot/account/info/?${urlParams}`;
+    return this.http.get(url).pipe(
+      map((response: any) => {
+        return response.data[accountId] as WotPlayerPersonalData;
       }),
     );
   }

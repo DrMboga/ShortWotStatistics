@@ -64,3 +64,6 @@ https://api.worldoftanks.eu/wot/tanks/stats/?application_id=7026c24084fc704a9b73
 https://api.worldoftanks.eu/wot/tanks/achievements/?application_id=7026c24084fc704a9b73d8b35c5ff45a&access_token=853bc77ad4db9da89c16386962e624baa6ac1d88&language=ru&account_id=599488537
 
 
+# WOT
+
+https://api.wotblitz.eu/wotb/account/info/?access_token=c74b5bb622e0e814ac8078c97cd5a66ffc819875&account_id=599488537&application_id=7026c24084fc704a9b73d8b35c5ff45a

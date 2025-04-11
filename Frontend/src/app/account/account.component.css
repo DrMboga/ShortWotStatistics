@@ -2,6 +2,16 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  margin: 100px;
+  margin: 50px;
   gap: 5px;
+
+  .accounts-table {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+  }
+
+  .statistics {
+    flex-grow: 1;
+  }
 }

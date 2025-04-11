@@ -26,6 +26,7 @@ const initialState: AccountState = {
   applicationId: '',
   accountId: '',
   accountNickName: '',
+  accessToken: '',
   accessTokenExpires: 0,
   games: [],
 };

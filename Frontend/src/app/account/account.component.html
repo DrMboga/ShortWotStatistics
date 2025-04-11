@@ -1,9 +1,16 @@
 @if (!loggedIn()) {
   <app-login></app-login>
 }
-<p>Nick: {{ accountStore.accountNickName() }}</p>
-
-@for (game of accountStore.games(); track game){
-  <p>{{game}}</p>
-}
+<div class="accounts-table">
+  @if (hasWotAccount()){
+    <div class="statistics">
+      <app-wot-account-overview></app-wot-account-overview>
+    </div>
+  }
+  @if (hasBlitzAccount()){
+    <div class="statistics">
+      <h2>World of Tanks Blitz</h2>
+    </div>
+  }
+</div>
 
