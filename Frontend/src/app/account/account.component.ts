@@ -1,4 +1,4 @@
-import { Component, computed, inject } from '@angular/core';
+import { Component, computed, effect, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { AccountStore } from '../store/account.store';
 import { LoginComponent } from '../components/login/login.component';
@@ -27,4 +27,17 @@ export class AccountComponent {
       this.accountStore.games().length > 0 &&
       this.accountStore.games().includes('wotb'),
   );
+
+  constructor() {
+    effect(() => {
+      if (this.hasWotAccount()) {
+        this.accountStore.setWotPlayerPrivateInfo();
+      }
+    });
+    effect(() => {
+      if (this.hasBlitzAccount()) {
+        this.accountStore.setBlitzPlayerPrivateInfo();
+      }
+    });
+  }
 }

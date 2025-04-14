@@ -1,1 +1,3 @@
-<p>blitz-account works!</p>
+@if (blitzPlayerPrivateInfo(); as blitzPlayerPrivateInfo) {
+  <span class="display-1">Last battle: {{ blitzPlayerPrivateInfo.last_battle_time * 1000 | date: 'dd.MM.yyyy HH:mm' }}</span>
+}
