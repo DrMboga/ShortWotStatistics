@@ -29,13 +29,20 @@ export class WargamingApiService {
     applicationId: string,
     accountId: string,
     accessToken: string,
+    blitz: boolean,
     language: string = 'ru',
   ): Observable<WotPlayerPersonalData> {
     const urlParams = this.buildQueryParams(applicationId, accountId, accessToken, language);
     // TODO: Remove json from assets
-    // const url = '../assets/playerPersonalData.json';
+    let url: string = '';
+    if (blitz) {
+      url = '../assets/wotPlayerPersonalData.json';
+      // url = `https://api.wotblitz.eu/wotb/account/info/?${urlParams}`;
+    } else {
+      url = '../assets/playerPersonalData.json';
+      // url = `https://api.worldoftanks.eu/wot/account/info/?${urlParams}`;
+    }
 
-    const url = `https://api.worldoftanks.eu/wot/account/info/?${urlParams}`;
     return this.http.get(url).pipe(
       map((response: any) => {
         return response.data[accountId] as WotPlayerPersonalData;

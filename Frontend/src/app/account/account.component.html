@@ -4,12 +4,12 @@
 <div class="accounts-table">
   @if (hasWotAccount()){
     <div class="statistics">
-      <app-wot-account-overview></app-wot-account-overview>
+      <app-wot-account-overview [isBlitz]="false"></app-wot-account-overview>
     </div>
   }
   @if (hasBlitzAccount()){
     <div class="statistics">
-      <h2>World of Tanks Blitz</h2>
+      <app-wot-account-overview [isBlitz]="true"></app-wot-account-overview>
     </div>
   }
 </div>
