@@ -9,6 +9,13 @@
     display: flex;
     flex-direction: row;
     width: 100%;
+
+  }
+  @media (max-width: 1000px) {
+    .accounts-table {
+      flex-direction: column;
+      gap: 30px;
+    }
   }
 
   .statistics {
