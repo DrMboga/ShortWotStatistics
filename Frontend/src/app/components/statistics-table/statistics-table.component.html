@@ -1,0 +1,140 @@
+@if (playerInfo(); as statistics) {
+  <table class="mat-elevation-z8">
+    <th></th>
+    <tr>
+      <td>
+        <div class="aligned">
+          <img src="./assets/account/battle.png" alt=""/>
+          Last battle
+        </div>
+      </td>
+      <td>{{ statistics.last_battle_time * 1000 | date: 'dd.MM.yyyy HH:mm' }}</td>
+    </tr>
+    <tr>
+      <td>
+        <div class="aligned">
+          <img src="./assets/account/battle.png" alt=""/>
+           Battles count
+        </div>
+      </td>
+      <td>{{ statistics.statistics.all.battles | number}}</td>
+    </tr>
+    @if (statistics.statistics.all.battles > 0) {
+      <tr>
+        <td>
+          <div class="aligned">
+            <img src="./assets/account/battle.png" alt=""/>
+            Wins
+          </div>
+        </td>
+        <td>
+          {{ statistics.statistics.all.wins | number}}
+          (<span [style.color]="(100 * statistics.statistics.all.wins / statistics.statistics.all.battles) | scaleColor">{{ (100 * statistics.statistics.all.wins / statistics.statistics.all.battles) | number: '1.2-2' }}%</span>)
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div class="aligned">
+            <img src="./assets/account/battle.png" alt=""/>
+            Defeats
+          </div>
+        </td>
+        <td>
+          {{ statistics.statistics.all.losses | number}}
+          ({{ (100 * statistics.statistics.all.losses / statistics.statistics.all.battles) | number: '1.2-2' }}%)
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div class="aligned">
+            <img src="./assets/account/icon_battle_condition_survive_128x128.png" alt=""/>
+            Survived
+          </div>
+        </td>
+        <td>
+          {{ statistics.statistics.all.survived_battles | number: '1.0-0' }}
+          ({{ 100 * (statistics.statistics.all.survived_battles / statistics.statistics.all.battles) | number: '1.0-0' }}%)
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div class="aligned">
+            <img src="./assets/kpi/damage.png" alt=""/>
+            Average damage
+          </div>
+        </td>
+        <td>
+          {{ (statistics.statistics.all.damage_dealt / statistics.statistics.all.battles) | number: '1.0-0' }}
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div class="aligned">
+            <img src="./assets/account/XpIconBig-2.png" alt=""/>
+            Average XP
+          </div>
+        </td>
+        <td>
+          {{ (statistics.statistics.all.xp / statistics.statistics.all.battles) | number: '1.0-0' }}
+        </td>
+      </tr>
+      @if (statistics.private; as privateData) {
+        <tr>
+          <td>
+            <div class="aligned">
+              <img src="./assets/account/icon_battle_condition_survive_128x128.png" alt=""/>
+              Average battle lifetime
+            </div>
+          </td>
+          <td>
+            {{ privateData.battle_life_time | averageBattleLifeTime : statistics.statistics.all.battles }}
+          </td>
+        </tr>
+      }
+      <tr>
+        <td>
+          <div class="aligned">
+            <img src="./assets/kpi/kills.png" alt=""/>
+            Frags per battle
+          </div>
+        </td>
+        <td>
+          {{ (statistics.statistics.all.frags / statistics.statistics.all.battles) | number: '1.2-2' }}
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div class="aligned">
+            <img src="./assets/kpi/hit_spaced_armor_blocked.png" alt=""/>
+            Shots per battle
+          </div>
+        </td>
+        <td>
+          {{ (statistics.statistics.all.shots / statistics.statistics.all.battles) | number: '1.2-2' }}
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div class="aligned">
+            <img src="./assets/kpi/hit_spaced_armor_blocked.png" alt=""/>
+            Hits per battle
+          </div>
+        </td>
+        <td>
+          {{ (statistics.statistics.all.hits / statistics.statistics.all.battles) | number: '1.2-2' }}
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div class="aligned">
+            <img src="./assets/kpi/hit_spaced_armor_blocked.png" alt=""/>
+            Accuracy
+          </div>
+        </td>
+        <td>
+          {{ (100 * statistics.statistics.all.hits / statistics.statistics.all.shots) | number: '1.0-0' }}%
+        </td>
+      </tr>
+    }
+  </table>
+}

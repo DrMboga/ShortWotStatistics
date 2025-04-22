@@ -1,10 +1,10 @@
 import { Component, computed, inject } from '@angular/core';
 import { AccountStore } from '../../store/account.store';
-import { DatePipe } from '@angular/common';
+import { StatisticsTableComponent } from '../../components/statistics-table/statistics-table.component';
 
 @Component({
   selector: 'app-blitz-account',
-  imports: [DatePipe],
+  imports: [StatisticsTableComponent],
   templateUrl: './blitz-account.component.html',
   styleUrl: './blitz-account.component.css',
 })

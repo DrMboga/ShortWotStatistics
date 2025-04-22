@@ -1,3 +1,1 @@
-@if (blitzPlayerPrivateInfo(); as blitzPlayerPrivateInfo) {
-  <span class="display-1">Last battle: {{ blitzPlayerPrivateInfo.last_battle_time * 1000 | date: 'dd.MM.yyyy HH:mm' }}</span>
-}
+<app-statistics-table [playerInfo]="blitzPlayerPrivateInfo()"></app-statistics-table>

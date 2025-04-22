@@ -1,4 +1,1 @@
-@if (wotPlayerPrivateInfo(); as wotPlayerPrivateInfo) {
-  <span
-    class="display-1">Last battle: {{ wotPlayerPrivateInfo.last_battle_time * 1000 | date: 'dd.MM.yyyy HH:mm' }}</span>
-}
+<app-statistics-table [playerInfo]="wotPlayerPrivateInfo()"></app-statistics-table>

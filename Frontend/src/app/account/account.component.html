@@ -3,12 +3,12 @@
 }
 <div class="accounts-table">
   @if (hasWotAccount()){
-    <div class="statistics">
+    <div class="statistics mat-elevation-z8">
       <app-wot-account-overview [isBlitz]="false"></app-wot-account-overview>
     </div>
   }
   @if (hasBlitzAccount()){
-    <div class="statistics">
+    <div class="statistics mat-elevation-z8">
       <app-wot-account-overview [isBlitz]="true"></app-wot-account-overview>
     </div>
   }

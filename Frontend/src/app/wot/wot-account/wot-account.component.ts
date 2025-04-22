@@ -1,10 +1,10 @@
 import { Component, computed, inject } from '@angular/core';
 import { AccountStore } from '../../store/account.store';
-import { DatePipe } from '@angular/common';
+import { StatisticsTableComponent } from '../../components/statistics-table/statistics-table.component';
 
 @Component({
   selector: 'app-wot-account',
-  imports: [DatePipe],
+  imports: [StatisticsTableComponent],
   templateUrl: './wot-account.component.html',
   styleUrl: './wot-account.component.css',
 })
