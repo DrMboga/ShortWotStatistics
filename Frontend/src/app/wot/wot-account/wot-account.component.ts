@@ -1,10 +1,11 @@
 import { Component, computed, inject } from '@angular/core';
 import { AccountStore } from '../../store/account.store';
 import { StatisticsTableComponent } from '../../components/statistics-table/statistics-table.component';
+import { WotPlayerAchievementsComponent } from '../wot-player-achievements/wot-player-achievements.component';
 
 @Component({
   selector: 'app-wot-account',
-  imports: [StatisticsTableComponent],
+  imports: [StatisticsTableComponent, WotPlayerAchievementsComponent],
   templateUrl: './wot-account.component.html',
   styleUrl: './wot-account.component.css',
 })

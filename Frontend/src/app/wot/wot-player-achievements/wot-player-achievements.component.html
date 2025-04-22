@@ -1,0 +1,9 @@
+@if (achievementsStore.wotPlayerAchievements(); as achievements) {
+  @for (achievement of achievements; track achievement.name) {
+    <div [matBadge]="achievement.count" matBadgePosition="below after" matBadgeSize="small" matBadgeOverlap="flase"
+      [matTooltip]="achievement | achievementInfo"
+      >
+      <img class="achievement-picture" [src]="achievement.image" [alt]="achievement.localizedName">
+    </div>
+  }
+}

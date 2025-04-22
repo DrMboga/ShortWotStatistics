@@ -1,0 +1,64 @@
+{
+  "status": "ok",
+  "meta": {
+    "count": 1
+  },
+  "data": {
+    "599488537": {
+      "achievements": {
+        "shootToKill": 10,
+        "titleSniper": 16,
+        "medalLavrinenko": 4,
+        "armorPiercer": 10,
+        "medalPoppel": 4,
+        "06YearsOfService": 1,
+        "supporter": 1,
+        "bootcampMedal": 1,
+        "medalKay": 4,
+        "medalCarius": 4,
+        "duelist": 3,
+        "charmed": 1,
+        "fighter": 1,
+        "mainGun": 1,
+        "medalAbrams": 4,
+        "medalLeClerc": 4,
+        "medalKnispel": 4,
+        "bonecrusher": 6,
+        "defender": 1
+      },
+      "frags": {
+        "crucialShotMedal": 0,
+        "prematureDetonationMedal": 0,
+        "sentinelMedal": 0,
+        "infiltratorMedal": 0,
+        "fightingReconnaissanceMedal": 0,
+        "fireAndSteelMedal": 0,
+        "rangerMedal": 0,
+        "reliableComrade": 11,
+        "pyromaniacMedal": 0,
+        "wolfAmongSheepMedal": 0,
+        "heavyFireMedal": 0,
+        "bruteForceMedal": 0,
+        "guerrillaMedal": 0,
+        "promisingFighterMedal": 0,
+        "beasthunter": 0,
+        "geniusForWarMedal": 0,
+        "sinai": 0,
+        "pattonValley": 0
+      },
+      "max_series": {
+        "deathTrack": 0,
+        "aimer": 0,
+        "titleSniper": 16,
+        "armorPiercer": 10,
+        "invincible": 0,
+        "tacticalBreakthrough": 0,
+        "EFC2016": 0,
+        "victoryMarch": 0,
+        "diehard": 1,
+        "WFC2014": 0,
+        "handOfDeath": 2
+      }
+    }
+  }
+}

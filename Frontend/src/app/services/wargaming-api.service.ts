@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { map, Observable } from 'rxjs';
 import { CommonAccountInfoResponse } from '../model/wargaming/commonAccountInfoResponse';
 import { WotPlayerPersonalData } from '../model/wargaming/wotPlayerPersonalData';
+import { TankopediaAchievement } from '../model/wargaming/tankopedia-achievement';
 
 @Injectable({
   providedIn: 'root',
@@ -46,6 +47,47 @@ export class WargamingApiService {
     return this.http.get(url).pipe(
       map((response: any) => {
         return response.data[accountId] as WotPlayerPersonalData;
+      }),
+    );
+  }
+
+  public getTankopediaAchievements(
+    applicationId: string,
+    language: string = 'ru',
+  ): Observable<TankopediaAchievement[]> {
+    // const url = `https://api.worldoftanks.eu/wot/encyclopedia/achievements/?application_id=${applicationId}&language=${language}`;
+    const url = `../assets/tankopediaAchievements.json`;
+    return this.http.get(url).pipe(
+      map((response: any) => {
+        const result: TankopediaAchievement[] = [];
+        const keys = Object.keys(response.data);
+        for (const key of keys) {
+          result.push(response.data[key]);
+        }
+        return result;
+      }),
+    );
+  }
+
+  public getPlayerAchievements(
+    applicationId: string,
+    accountId: string,
+    language: string = 'ru',
+  ): Observable<{ name: string; count: number }[]> {
+    // const url = `https://api.worldoftanks.eu/wot/account/achievements/?application_id=${applicationId}&account_id=${accountId}&language=${language}`;
+    const url = `../assets/playerAchievements.json`;
+    return this.http.get(url).pipe(
+      map((response: any) => {
+        const achievements = response?.data[accountId]?.['achievements'];
+        if (!achievements) {
+          return [];
+        }
+        const result: { name: string; count: number }[] = [];
+        const keys = Object.keys(achievements);
+        for (const key of keys) {
+          result.push({ name: key, count: achievements[key] });
+        }
+        return result;
       }),
     );
   }

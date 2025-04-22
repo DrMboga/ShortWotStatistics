@@ -1,0 +1,12 @@
+:host {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 20px;
+  margin-bottom: 20px;
+
+  .achievement-picture {
+    height: 60px;
+  }
+}
