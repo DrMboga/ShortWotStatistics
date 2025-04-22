@@ -1,0 +1,9 @@
+export const SCALE_VERY_BAD_COLOR = '#a3a3a3';
+export const SCALE_BAD_COLOR = '#dc7070';
+export const SCALE_BELOW_AVERAGE_COLOR = '#ff9f25';
+export const SCALE_AVERAGE_COLOR = '#ffdd25';
+export const SCALE_GOOD_COLOR = '#9ad131';
+export const SCALE_VERY_GOOD_COLOR = '#6fad43';
+export const SCALE_GREAT_COLOR = '#81b3cd';
+export const SCALE_UNICUM_COLOR = '#a785bb';
+export const SCALE_SUPER_UNICUM_COLOR = '#8348ab';

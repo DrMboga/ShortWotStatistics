@@ -1,9 +1,9 @@
 <h2 class="mat-h2">World of Tanks
   @if (isBlitz()) {
     Blitz
-    <img src="./assets/account/blitzIcon.png" style="height: 24px;"/>
+    <img src="./assets/account/blitzIcon.png" style="height: 24px;" alt=""/>
   } @else {
-    <img src="./assets/account/wtrIcon_24.png"/>
+    <img src="./assets/account/wtrIcon_24.png" alt=""/>
   }
 </h2>
 
@@ -11,18 +11,18 @@
   @if (wotPlayerPersonalData.private; as privateData) {
     <div class="wot-resources">
       <div class="parameter-item">
-        <img src="./assets/account/GoldIcon-24.png"/> {{ privateData.gold | number }}
+        <img src="./assets/account/GoldIcon-24.png" alt=""/> {{ privateData.gold | number }}
       </div>
       <div class="parameter-item">
-        <img src="./assets/account/CreditsIcon-3.png"/> {{ privateData.credits | number }}
+        <img src="./assets/account/CreditsIcon-3.png" alt=""/> {{ privateData.credits | number }}
       </div>
       @if (!isBlitz()) {
         <div class="parameter-item">
-          <img src="./assets/account/CrystalIcon-24.png"/> {{ privateData.bonds | number }}
+          <img src="./assets/account/CrystalIcon-24.png" alt=""/> {{ privateData.bonds | number }}
         </div>
       }
       <div class="parameter-item">
-        <img src="./assets/account/freeXPIconBig24x24.png"/> {{ privateData.free_xp | number }}
+        <img src="./assets/account/freeXPIconBig24x24.png" alt=""/> {{ privateData.free_xp | number }}
       </div>
     </div>
   }
@@ -30,21 +30,17 @@
     @if (statistics.battles > 0) {
       <div class="wot-resources">
         <div class="parameter-item">
-          <img src="./assets/account/battle.png"/> {{ statistics.battles | number }}
-          | {{ (100 * statistics.wins / statistics.battles) | number: '1.0-0' }}
-          %
+          <img src="./assets/account/battle.png" alt=""/> {{ statistics.battles | number }}
+          | <span [style.color]="(100 * statistics.wins / statistics.battles) | scaleColor">{{ (100 * statistics.wins / statistics.battles) | number: '1.0-0' }}% </span>
         </div>
         <div class="parameter-item">
-          <img
-            src="./assets/kpi/damage.png"/> {{ (statistics.damage_dealt / statistics.battles) | number: '1.0-0' }}
+          <img src="./assets/kpi/damage.png" alt=""/> {{ (statistics.damage_dealt / statistics.battles) | number: '1.0-0' }}
         </div>
         <div class="parameter-item">
-          <img
-            src="./assets/account/XpIconBig-2.png"/> {{ (statistics.xp / statistics.battles) | number: '1.0-0' }}
+          <img src="./assets/account/XpIconBig-2.png" alt=""/> {{ (statistics.xp / statistics.battles) | number: '1.0-0' }}
         </div>
         <div class="parameter-item">
-          <img
-            src="./assets/account/icon_battle_condition_survive_128x128.png"/> {{ 100 * (statistics.survived_battles / statistics.battles) | number: '1.0-0' }}
+          <img src="./assets/account/icon_battle_condition_survive_128x128.png" alt=""/> {{ 100 * (statistics.survived_battles / statistics.battles) | number: '1.0-0' }}
           %
           @if (wotPlayerPersonalData.private; as privateData) {
             | ({{ privateData.battle_life_time | averageBattleLifeTime : statistics.battles }})
@@ -53,9 +49,7 @@
       </div>
     }
   }
-  <span
-    class="display-1">Last battle: {{ wotPlayerPersonalData.last_battle_time * 1000 | date: 'dd.MM.yyyy HH:mm' }}</span>
-  <span class="mat-small"
-        style="margin-top: 15px;">Registration date: {{ wotPlayerPersonalData.created_at * 1000 | date: 'dd.MM.yyyy' }}</span>
+  <span class="display-1">Last battle: {{ wotPlayerPersonalData.last_battle_time * 1000 | date: 'dd.MM.yyyy HH:mm' }}</span>
+  <span class="mat-small" style="margin-top: 15px;">Registration date: {{ wotPlayerPersonalData.created_at * 1000 | date: 'dd.MM.yyyy' }}</span>
 
 }

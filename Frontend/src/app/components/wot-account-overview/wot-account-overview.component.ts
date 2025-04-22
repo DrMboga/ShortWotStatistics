@@ -2,10 +2,11 @@ import { Component, computed, inject, input } from '@angular/core';
 import { AccountStore } from '../../store/account.store';
 import { DatePipe, DecimalPipe } from '@angular/common';
 import { AverageBattleLifeTimePipe } from '../../pipes/average-battle-life-time.pipe';
+import { ScaleColorPipe } from '../../pipes/scale-color.pipe';
 
 @Component({
   selector: 'app-wot-account-overview',
-  imports: [DatePipe, DecimalPipe, AverageBattleLifeTimePipe],
+  imports: [DatePipe, DecimalPipe, AverageBattleLifeTimePipe, ScaleColorPipe],
   templateUrl: './wot-account-overview.component.html',
   styleUrl: './wot-account-overview.component.css',
 })
