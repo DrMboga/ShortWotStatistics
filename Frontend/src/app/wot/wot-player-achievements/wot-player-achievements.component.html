@@ -1,4 +1,9 @@
 @if (achievementsStore.wotPlayerAchievements(); as achievements) {
+  <div [matBadge]="mastersCount()" matBadgePosition="below after" matBadgeSize="small" matBadgeOverlap="flase"
+       [matTooltip]="(`${mastersCount()} | ${tanksCount()}`)"
+  >
+    <img class="achievement-picture" src="./assets/account/markOfMastery4.png" alt="mastery">
+  </div>
   @for (achievement of achievements; track achievement.name) {
     <div [matBadge]="achievement.count" matBadgePosition="below after" matBadgeSize="small" matBadgeOverlap="flase"
       [matTooltip]="achievement | achievementInfo"

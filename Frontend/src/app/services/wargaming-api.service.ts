@@ -4,6 +4,7 @@ import { map, Observable } from 'rxjs';
 import { CommonAccountInfoResponse } from '../model/wargaming/commonAccountInfoResponse';
 import { WotPlayerPersonalData } from '../model/wargaming/wotPlayerPersonalData';
 import { TankopediaAchievement } from '../model/wargaming/tankopedia-achievement';
+import { VehicleData } from '../model/wargaming/vehicleStatistics';
 
 @Injectable({
   providedIn: 'root',
@@ -88,6 +89,27 @@ export class WargamingApiService {
           result.push({ name: key, count: achievements[key] });
         }
         return result;
+      }),
+    );
+  }
+
+  public getTanksStatistics(
+    applicationId: string,
+    accountId: string,
+    accessToken: string,
+    language: string = 'ru',
+  ): Observable<VehicleData[]> {
+    const urlParams = this.buildQueryParams(applicationId, accountId, accessToken, language);
+    console.log('getTanksStatistics', urlParams);
+    // const url = `https://api.worldoftanks.eu/wot/tanks/stats/?${urlParams}`;
+    const url = `../assets/playerVehicleStatistics.json`;
+    return this.http.get(url).pipe(
+      map((response: any) => {
+        const data = response?.data[accountId];
+        if (!data) {
+          return [];
+        }
+        return data as VehicleData[];
       }),
     );
   }

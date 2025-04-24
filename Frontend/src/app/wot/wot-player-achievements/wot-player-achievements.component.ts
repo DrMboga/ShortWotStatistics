@@ -14,6 +14,8 @@ export class WotPlayerAchievementsComponent {
   readonly achievementsStore = inject(AchievementsStore);
 
   accountId = input<string>();
+  tanksCount = input<number>();
+  mastersCount = input<number>();
 
   constructor() {
     effect(() => {
