@@ -1,10 +1,11 @@
 import { inject, Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { map, Observable } from 'rxjs';
+import { forkJoin, map, Observable, of } from 'rxjs';
 import { CommonAccountInfoResponse } from '../model/wargaming/commonAccountInfoResponse';
 import { WotPlayerPersonalData } from '../model/wargaming/wotPlayerPersonalData';
 import { TankopediaAchievement } from '../model/wargaming/tankopedia-achievement';
 import { VehicleData } from '../model/wargaming/vehicleStatistics';
+import { Vehicle } from '../model/wargaming/vehicle';
 
 @Injectable({
   providedIn: 'root',
@@ -114,6 +115,42 @@ export class WargamingApiService {
     );
   }
 
+  public getShortTanksInfo(
+    applicationId: string,
+    tankIds: number[],
+    language: string = 'ru',
+  ): Observable<Vehicle[]> {
+    if (!tankIds.length) return of([]);
+
+    const baseUrl = 'https://api.worldoftanks.eu/wot/encyclopedia/vehicles/';
+
+    const chunkSize = 100;
+    const tanksChunks = this.chunkArray(tankIds, chunkSize);
+
+    const requests = tanksChunks.map(chunk => {
+      const tankIdsParam = chunk.join(',');
+      const url = `${baseUrl}?application_id=${applicationId}&tank_id=${tankIdsParam}&fields=is_premium%2Cimages%2Ctank_id%2Ctype%2Cshort_name%2Cnation%2Ctier%2Cname&language=${language}`;
+      console.log(url);
+      const urlMock = `../assets/tankopediaVehiclesShort.json`;
+      return this.http.get(urlMock).pipe(
+        map((response: any) => {
+          const dataObject = response.data;
+          if (!dataObject) {
+            return [];
+          }
+          const keys = Object.keys(dataObject);
+          const result: Vehicle[] = [];
+          for (const tankId of keys) {
+            result.push(dataObject[tankId] as Vehicle);
+          }
+          return result;
+        }),
+      );
+    });
+
+    return forkJoin(requests).pipe(map(responses => responses.flat()));
+  }
+
   private buildQueryParams(
     applicationId: string,
     accountId: string,
@@ -121,5 +158,13 @@ export class WargamingApiService {
     language: string,
   ): string {
     return `application_id=${applicationId}&account_id=${accountId}&language=${language}&access_token=${accessToken}`;
+  }
+
+  private chunkArray<T>(array: T[], chunkSize: number): T[][] {
+    const chunks: T[][] = [];
+    for (let i = 0; i < array.length; i += chunkSize) {
+      chunks.push(array.slice(i, i + chunkSize));
+    }
+    return chunks;
   }
 }

@@ -24,6 +24,9 @@ https://api.worldoftanks.eu/wot/encyclopedia/vehicles/?application_id=7026c24084
 - All Germany with fields list
   https://api.worldoftanks.eu/wot/encyclopedia/vehicles/?application_id=7026c24084fc704a9b73d8b35c5ff45a&nation=germany&fields=is_wheeled%2Cis_premium%2Ctag%2Cimages%2Ctank_id%2Ccrew%2Ctype%2Cdescription%2Cshort_name%2Cnext_tanks%2Cnation%2Ctier%2Cprices_xp%2Cis_gift%2Cname%2Cprice_gold%2Cprice_credit&language=ru
 
+- Tanks list and small amount of fields
+  https://api.worldoftanks.eu/wot/encyclopedia/vehicles/?application_id=7026c24084fc704a9b73d8b35c5ff45a&tank_id=3329,1025&fields=is_premium%2Cimages%2Ctank_id%2Ctype%2Cshort_name%2Cnation%2Ctier%2Cname&language=ru
+
 ### Achievements
 
 https://api.worldoftanks.eu/wot/encyclopedia/achievements/?application_id=7026c24084fc704a9b73d8b35c5ff45a&language=ru
