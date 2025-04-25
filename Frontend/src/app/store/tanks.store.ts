@@ -12,7 +12,7 @@ import { IndexedDBService } from '../indexedDb/indexed-db.service';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { WargamingApiService } from '../services/wargaming-api.service';
 import { rxMethod } from '@ngrx/signals/rxjs-interop';
-import { of, pipe, switchMap } from 'rxjs';
+import { map, of, pipe, switchMap } from 'rxjs';
 import { tapResponse } from '@ngrx/operators';
 
 type TanksState = {
@@ -54,6 +54,20 @@ export const TanksStore = signalStore(
           return wargamingApi
             .getTanksStatistics(store.applicationId(), accountId, accessToken)
             .pipe(
+              switchMap(playerTanks => {
+                if (playerTanks.length === 0) {
+                  return of([]);
+                }
+                const tankIds = playerTanks.map(t => t.tank_id);
+                return wargamingApi.getShortTanksInfo(store.applicationId(), tankIds).pipe(
+                  map(vehicles => {
+                    return playerTanks.map(tank => {
+                      tank.vehicleInfo = vehicles.find(v => v.tank_id === tank.tank_id);
+                      return tank;
+                    });
+                  }),
+                );
+              }),
               tapResponse({
                 next: playerTanks => patchState(store, () => ({ playerTanks })),
                 error: err => {

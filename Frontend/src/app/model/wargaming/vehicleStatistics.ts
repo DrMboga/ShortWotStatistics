@@ -1,3 +1,5 @@
+import { Vehicle } from './vehicle';
+
 export interface VehicleStatistics {
   spotted: number;
   battles_on_stunning_vehicles: number;
@@ -50,4 +52,5 @@ export interface VehicleData {
   regular_team: VehicleStatistics;
   stronghold_skirmish: VehicleStatistics;
   clan: VehicleStatistics;
+  vehicleInfo?: Vehicle;
 }

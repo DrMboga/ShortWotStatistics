@@ -101,7 +101,6 @@ export class WargamingApiService {
     language: string = 'ru',
   ): Observable<VehicleData[]> {
     const urlParams = this.buildQueryParams(applicationId, accountId, accessToken, language);
-    console.log('getTanksStatistics', urlParams);
     // const url = `https://api.worldoftanks.eu/wot/tanks/stats/?${urlParams}`;
     const url = `../assets/playerVehicleStatistics.json`;
     return this.http.get(url).pipe(

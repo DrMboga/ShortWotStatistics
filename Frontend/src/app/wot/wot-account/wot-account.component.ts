@@ -3,10 +3,11 @@ import { AccountStore } from '../../store/account.store';
 import { StatisticsTableComponent } from '../../components/statistics-table/statistics-table.component';
 import { WotPlayerAchievementsComponent } from '../wot-player-achievements/wot-player-achievements.component';
 import { TanksStore } from '../../store/tanks.store';
+import { WotPlayerTanksListComponent } from '../wot-player-tanks-list/wot-player-tanks-list.component';
 
 @Component({
   selector: 'app-wot-account',
-  imports: [StatisticsTableComponent, WotPlayerAchievementsComponent],
+  imports: [StatisticsTableComponent, WotPlayerAchievementsComponent, WotPlayerTanksListComponent],
   templateUrl: './wot-account.component.html',
   styleUrl: './wot-account.component.css',
 })

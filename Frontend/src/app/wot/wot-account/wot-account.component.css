@@ -4,4 +4,17 @@
   align-items: flex-start;
   margin: 50px;
   gap: 5px;
+
+  .account-overview {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+  }
+
+  @media (max-width: 1000px) {
+    .account-overview {
+      flex-direction: column;
+      gap: 30px;
+    }
+  }
 }

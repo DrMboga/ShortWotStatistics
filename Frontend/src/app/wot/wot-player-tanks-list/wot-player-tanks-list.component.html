@@ -1,0 +1,17 @@
+@if (tanksStore.playerTanks(); as tanks) {
+  <table class="mat-elevation-z8">
+    <th></th>
+    @for (tank of tanks; track tank.tank_id) {
+      <tr>
+        <td>
+          {{ tank.tank_id }}
+        </td>
+        @if (tank.vehicleInfo) {
+          <td>
+            {{ tank.vehicleInfo.name }}
+          </td>
+        }
+      </tr>
+    }
+  </table>
+}
