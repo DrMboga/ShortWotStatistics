@@ -17,3 +17,11 @@
 </div>
 
 {{currentNation()}}
+
+@if(playerTanks(); as playerTanks) {
+  {{playerTanks.length}}
+}
+
+@if(tankopedia(); as tankopedia) {
+  {{tankopedia.length}}
+}

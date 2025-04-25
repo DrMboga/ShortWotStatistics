@@ -123,23 +123,19 @@ export class WargamingApiService {
     const requests = tanksChunks.map(chunk => {
       const tankIdsParam = chunk.join(',');
       const url = `${baseUrl}?application_id=${applicationId}&tank_id=${tankIdsParam}&fields=is_premium%2Cimages%2Ctank_id%2Ctype%2Cshort_name%2Cnation%2Ctier%2Cname&language=${language}`;
-      return this.http.get(url).pipe(
-        map((response: any) => {
-          const dataObject = response.data;
-          if (!dataObject) {
-            return [];
-          }
-          const keys = Object.keys(dataObject);
-          const result: Vehicle[] = [];
-          for (const tankId of keys) {
-            result.push(dataObject[tankId] as Vehicle);
-          }
-          return result;
-        }),
-      );
+      return this.getVehicles(url);
     });
 
     return forkJoin(requests).pipe(map(responses => responses.flat()));
+  }
+
+  public getTreeTanksInfo(
+    applicationId: string,
+    nation: string,
+    language: string = 'ru',
+  ): Observable<Vehicle[]> {
+    const url = `https://api.worldoftanks.eu/wot/encyclopedia/vehicles/?application_id=${applicationId}&nation=${nation}&fields=is_wheeled%2Cis_premium%2Ctag%2Cimages%2Ctank_id%2Ccrew%2Ctype%2Cdescription%2Cshort_name%2Cnext_tanks%2Cnation%2Ctier%2Cprices_xp%2Cis_gift%2Cname%2Cprice_gold%2Cprice_credit&language=${language}`;
+    return this.getVehicles(url);
   }
 
   private buildQueryParams(
@@ -157,5 +153,22 @@ export class WargamingApiService {
       chunks.push(array.slice(i, i + chunkSize));
     }
     return chunks;
+  }
+
+  private getVehicles(url: string): Observable<Vehicle[]> {
+    return this.http.get(url).pipe(
+      map((response: any) => {
+        const dataObject = response.data;
+        if (!dataObject) {
+          return [];
+        }
+        const keys = Object.keys(dataObject);
+        const result: Vehicle[] = [];
+        for (const tankId of keys) {
+          result.push(dataObject[tankId] as Vehicle);
+        }
+        return result;
+      }),
+    );
   }
 }
