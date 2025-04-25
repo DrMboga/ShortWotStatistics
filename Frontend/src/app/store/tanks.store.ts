@@ -14,6 +14,7 @@ import { WargamingApiService } from '../services/wargaming-api.service';
 import { rxMethod } from '@ngrx/signals/rxjs-interop';
 import { map, of, pipe, switchMap } from 'rxjs';
 import { tapResponse } from '@ngrx/operators';
+import { Vehicle } from '../model/wargaming/vehicle';
 
 type TanksState = {
   applicationId: string;
@@ -59,14 +60,9 @@ export const TanksStore = signalStore(
                   return of([]);
                 }
                 const tankIds = playerTanks.map(t => t.tank_id);
-                return wargamingApi.getShortTanksInfo(store.applicationId(), tankIds).pipe(
-                  map(vehicles => {
-                    return playerTanks.map(tank => {
-                      tank.vehicleInfo = vehicles.find(v => v.tank_id === tank.tank_id);
-                      return tank;
-                    });
-                  }),
-                );
+                return wargamingApi
+                  .getShortTanksInfo(store.applicationId(), tankIds)
+                  .pipe(map(vehicles => mapTanksWithVehicles(playerTanks, vehicles)));
               }),
               tapResponse({
                 next: playerTanks => patchState(store, () => ({ playerTanks })),
@@ -81,3 +77,9 @@ export const TanksStore = signalStore(
     ),
   })),
 );
+
+const mapTanksWithVehicles = (tanks: VehicleData[], vehicles: Vehicle[]): VehicleData[] =>
+  tanks.map(tank => {
+    tank.vehicleInfo = vehicles.find(v => v.tank_id === tank.tank_id);
+    return tank;
+  });
