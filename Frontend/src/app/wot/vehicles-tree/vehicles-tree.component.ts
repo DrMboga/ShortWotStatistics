@@ -1,10 +1,11 @@
-import { Component, computed, effect, inject, signal } from '@angular/core';
+import { Component, computed, inject, signal } from '@angular/core';
 import { MatButton } from '@angular/material/button';
 import { NationFlagPipe } from '../../pipes/nation-flag.pipe';
 import { AccountStore } from '../../store/account.store';
 import { WargamingApiService } from '../../services/wargaming-api.service';
 import { toObservable, toSignal } from '@angular/core/rxjs-interop';
 import { of, switchMap } from 'rxjs';
+import { buildTree } from './helpers/tree-helper';
 
 @Component({
   selector: 'app-vehicles-tree',
@@ -85,5 +86,9 @@ export class VehiclesTreeComponent {
         return this.wotApi.getTreeTanksInfo(params.applicationId, params.nation);
       }),
     ),
+  );
+
+  readonly tanksTreeItems = computed(() =>
+    buildTree(this.tankopedia() ?? [], this.playerTanks() ?? []),
   );
 }
