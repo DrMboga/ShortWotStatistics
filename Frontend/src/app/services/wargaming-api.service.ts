@@ -36,14 +36,11 @@ export class WargamingApiService {
     language: string = 'ru',
   ): Observable<WotPlayerPersonalData> {
     const urlParams = this.buildQueryParams(applicationId, accountId, accessToken, language);
-    // TODO: Remove json from assets
-    let url: string = '';
+    let url: string;
     if (blitz) {
-      url = '../assets/wotPlayerPersonalData.json';
-      // url = `https://api.wotblitz.eu/wotb/account/info/?${urlParams}`;
+      url = `https://api.wotblitz.eu/wotb/account/info/?${urlParams}`;
     } else {
-      url = '../assets/playerPersonalData.json';
-      // url = `https://api.worldoftanks.eu/wot/account/info/?${urlParams}`;
+      url = `https://api.worldoftanks.eu/wot/account/info/?${urlParams}`;
     }
 
     return this.http.get(url).pipe(
@@ -57,8 +54,7 @@ export class WargamingApiService {
     applicationId: string,
     language: string = 'ru',
   ): Observable<TankopediaAchievement[]> {
-    // const url = `https://api.worldoftanks.eu/wot/encyclopedia/achievements/?application_id=${applicationId}&language=${language}`;
-    const url = `../assets/tankopediaAchievements.json`;
+    const url = `https://api.worldoftanks.eu/wot/encyclopedia/achievements/?application_id=${applicationId}&language=${language}`;
     return this.http.get(url).pipe(
       map((response: any) => {
         const result: TankopediaAchievement[] = [];
@@ -76,8 +72,7 @@ export class WargamingApiService {
     accountId: string,
     language: string = 'ru',
   ): Observable<{ name: string; count: number }[]> {
-    // const url = `https://api.worldoftanks.eu/wot/account/achievements/?application_id=${applicationId}&account_id=${accountId}&language=${language}`;
-    const url = `../assets/playerAchievements.json`;
+    const url = `https://api.worldoftanks.eu/wot/account/achievements/?application_id=${applicationId}&account_id=${accountId}&language=${language}`;
     return this.http.get(url).pipe(
       map((response: any) => {
         const achievements = response?.data[accountId]?.['achievements'];
@@ -101,8 +96,7 @@ export class WargamingApiService {
     language: string = 'ru',
   ): Observable<VehicleData[]> {
     const urlParams = this.buildQueryParams(applicationId, accountId, accessToken, language);
-    // const url = `https://api.worldoftanks.eu/wot/tanks/stats/?${urlParams}`;
-    const url = `../assets/playerVehicleStatistics.json`;
+    const url = `https://api.worldoftanks.eu/wot/tanks/stats/?${urlParams}`;
     return this.http.get(url).pipe(
       map((response: any) => {
         const data = response?.data[accountId];
@@ -129,9 +123,7 @@ export class WargamingApiService {
     const requests = tanksChunks.map(chunk => {
       const tankIdsParam = chunk.join(',');
       const url = `${baseUrl}?application_id=${applicationId}&tank_id=${tankIdsParam}&fields=is_premium%2Cimages%2Ctank_id%2Ctype%2Cshort_name%2Cnation%2Ctier%2Cname&language=${language}`;
-      console.log(url);
-      const urlMock = `../assets/tankopediaVehiclesShort.json`;
-      return this.http.get(urlMock).pipe(
+      return this.http.get(url).pipe(
         map((response: any) => {
           const dataObject = response.data;
           if (!dataObject) {

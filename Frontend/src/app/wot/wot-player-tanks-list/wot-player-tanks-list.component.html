@@ -1,14 +1,134 @@
-@if (tanksStore.playerTanks(); as tanks) {
+@if (tanksList(); as tanks) {
   <table class="mat-elevation-z8">
-    <th></th>
+    <tr>
+      <th>
+        <div class="aligned" style="justify-content: center">
+          <img src="./assets/account/nationBtn.png" alt="Nation"/>
+        </div>
+      </th>
+      <th>
+        <div class="aligned" style="justify-content: center">
+          <img style="height: 16px;" src="./assets/account/all.png" alt="Nation"/>
+        </div>
+      </th>
+      <th>
+        <div class="aligned" style="justify-content: center">
+          <img src="./assets/levels/level_all.png" alt="levels"/>
+        </div>
+      </th>
+      <th>
+        <div class="aligned" style="justify-content: center">
+          {{ tanks.length }}
+        </div>
+      </th>
+      <th></th>
+      <th></th>
+      <th>
+        <div class="aligned" style="justify-content: center">
+          <img src="./assets/account/battle.png" alt=""/>
+          {{ battlesSum() }}
+        </div>
+      </th>
+      <th>
+        <span [style.color]="avgWinRate() | scaleColor">{{ avgWinRate() | number: '1.0-0' }}%</span>
+      </th>
+      <th>
+        <div class="aligned" style="justify-content: center">
+          <img src="./assets/kpi/damage.png" alt="" style="height: 24px;"/>
+          {{ avgDamage() | number: '1.0-0' }}
+        </div>
+      </th>
+      <th>
+        <div class="aligned" style="justify-content: center">
+          <img src="./assets/account/XpIconBig-2.png" alt="" style="height: 24px;"/>
+          {{ avgXp() | number: '1.0-0' }}
+        </div>
+
+      </th>
+      <th>
+        @if (inGarageToggle()) {
+          <button mat-stroked-button aria-label="In Garage" (click)="inGarageToggle.set(!inGarageToggle())">
+            <div class="aligned">
+              <img src="./assets/account/garage.png" alt="in Garage"/>
+            </div>
+          </button>
+        } @else {
+          <button mat-raised-button aria-label="In Garage" (click)="inGarageToggle.set(!inGarageToggle())">
+            <div class="aligned">
+              <img src="./assets/account/garage.png" alt="in Garage"/>
+            </div>
+          </button>
+        }
+      </th>
+    </tr>
     @for (tank of tanks; track tank.tank_id) {
       <tr>
-        <td>
-          {{ tank.tank_id }}
-        </td>
         @if (tank.vehicleInfo) {
           <td>
-            {{ tank.vehicleInfo.name }}
+            <div class="aligned">
+              <img [src]="tank.vehicleInfo.nation | nationFlag" [alt]="tank.vehicleInfo.nation"/>
+            </div>
+          </td>
+          <td>
+            <div class="aligned">
+              <img [src]="tank.vehicleInfo.type | vehicleType: tank.vehicleInfo.is_premium"
+                   [alt]="tank.vehicleInfo.type"/>
+            </div>
+          </td>
+          <td>
+            <div class="aligned">
+              <img [src]="tank.vehicleInfo.tier | vehicleLevel" [alt]="tank.vehicleInfo.tier"/>
+            </div>
+          </td>
+          <td>
+            <div class="aligned" style="justify-content: right">
+              <img [src]="tank.vehicleInfo.images.contour_icon" [alt]="tank.vehicleInfo.name" style="height: 16px;"/>
+            </div>
+          </td>
+          <td>
+            <div class="aligned" [style.color]="(tank.vehicleInfo.is_premium ? '#d4d481' : 'unset')">
+              {{ tank.vehicleInfo.name }}
+            </div>
+          </td>
+          <td>
+            <div class="aligned">
+              @if (tank.mark_of_mastery > 0) {
+                <img [src]="tank.mark_of_mastery | mastery" [alt]="tank.mark_of_mastery"/>
+              }
+            </div>
+          </td>
+          <td>
+            <div class="aligned" [style.color]="(tank.vehicleInfo.is_premium ? '#d4d481' : 'unset')">
+              <img src="./assets/account/battle.png" alt=""/>
+              {{ tank.all.battles }}
+            </div>
+          </td>
+          <td>
+            @if (tank.all.battles > 0) {
+              <span
+                [style.color]="(100 * tank.all.wins / tank.all.battles) | scaleColor">{{ (100 * tank.all.wins / tank.all.battles) | number: '1.0-0' }}
+                %</span>
+            }
+          </td>
+          <td>
+            <div class="aligned" [style.color]="(tank.vehicleInfo.is_premium ? '#d4d481' : 'unset')">
+              <img src="./assets/kpi/damage.png" alt="" style="height: 24px;"/>
+              {{ (tank.all.damage_dealt / tank.all.battles) | number: '1.0-0' }}
+            </div>
+          </td>
+          <td>
+            <div class="aligned" [style.color]="(tank.vehicleInfo.is_premium ? '#d4d481' : 'unset')">
+              <img src="./assets/account/XpIconBig-2.png" alt="" style="height: 24px;"/>
+              {{ (tank.all.xp / tank.all.battles) | number: '1.0-0' }}
+            </div>
+          </td>
+
+          <td>
+            <div class="aligned" style="justify-content: center">
+              @if (tank.in_garage) {
+                <img src="./assets/account/garage.png" alt="in Garage"/>
+              }
+            </div>
           </td>
         }
       </tr>

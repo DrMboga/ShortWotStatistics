@@ -1,3 +1,9 @@
+# Plans:
+
+1. Show vehicle trees
+2. Save statistics change (and blitz)
+3. Show charts of stat changing
+
 # WoT 
 
 ## Accounts
