@@ -1,0 +1,19 @@
+<div class="flags-panel">
+  @for (nation of nations; track nation) {
+    @if (currentNation() === nation) {
+      <button mat-stroked-button (click)="currentNation.set(nation)">
+        <div style="display: flex">
+          <img [src]="nation | nationFlag" [alt]="nation" style="height: 22px;" />
+        </div>
+      </button>
+    } @else {
+      <button mat-raised-button (click)="currentNation.set(nation)">
+        <div style="display: flex">
+          <img [src]="nation | nationFlag" [alt]="nation" style="height: 22px;"/>
+        </div>
+      </button>
+    }
+  }
+</div>
+
+{{currentNation()}}

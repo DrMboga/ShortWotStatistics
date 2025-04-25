@@ -7,27 +7,27 @@ export class NationFlagPipe implements PipeTransform {
   transform(nation: string, flagSize: 'small' | 'middle' = 'small'): string {
     switch (nation) {
       case 'italy':
-        return './assets/flags/25x16/italy.png';
+        return `./assets/flags/${flagSize === 'small' ? '25x16' : '160x102'}/italy.png`;
       case 'usa':
-        return './assets/flags/25x16/usa.png';
+        return `./assets/flags/${flagSize === 'small' ? '25x16' : '160x102'}/usa.png`;
       case 'czech':
-        return './assets/flags/25x16/czech.png';
+        return `./assets/flags/${flagSize === 'small' ? '25x16' : '160x102'}/czech.png`;
       case 'poland':
-        return './assets/flags/25x16/poland.png';
+        return `./assets/flags/${flagSize === 'small' ? '25x16' : '160x102'}/poland.png`;
       case 'france':
-        return './assets/flags/25x16/france.png';
+        return `./assets/flags/${flagSize === 'small' ? '25x16' : '160x102'}/france.png`;
       case 'sweden':
-        return './assets/flags/25x16/sweden.png';
+        return `./assets/flags/${flagSize === 'small' ? '25x16' : '160x102'}/sweden.png`;
       case 'ussr':
-        return './assets/flags/25x16/ussr.png';
+        return `./assets/flags/${flagSize === 'small' ? '25x16' : '160x102'}/ussr.png`;
       case 'china':
-        return './assets/flags/25x16/china.png';
+        return `./assets/flags/${flagSize === 'small' ? '25x16' : '160x102'}/china.png`;
       case 'uk':
-        return './assets/flags/25x16/uk.png';
+        return `./assets/flags/${flagSize === 'small' ? '25x16' : '160x102'}/uk.png`;
       case 'japan':
-        return './assets/flags/25x16/japan.png';
+        return `./assets/flags/${flagSize === 'small' ? '25x16' : '160x102'}/japan.png`;
       case 'germany':
-        return './assets/flags/25x16/germany.png';
+        return `./assets/flags/${flagSize === 'small' ? '25x16' : '160x102'}/germany.png`;
     }
     return '';
   }

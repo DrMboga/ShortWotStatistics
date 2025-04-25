@@ -5,6 +5,9 @@
       @if (hasWotAccount()) {
         <app-nav-button routerLink="/wot-account" icon="assets/account/wtrIcon_24.png" label="WoT"></app-nav-button>
       }
+      @if (hasWotAccount()) {
+        <app-nav-button routerLink="/tanks-tree" icon="assets/account/2_sr_ur_tech32.png" label="WoT Tree"></app-nav-button>
+      }
       @if (hasBlitzAccount()) {
         <app-nav-button routerLink="/blitz-account" icon="assets/account/blitzIcon.png" label="Blitz"></app-nav-button>
       }

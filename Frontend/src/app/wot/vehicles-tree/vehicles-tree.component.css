@@ -1,0 +1,13 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin: 50px;
+  gap: 5px;
+
+  .flags-panel {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+  }
+}
