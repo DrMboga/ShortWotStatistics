@@ -1,20 +1,35 @@
 import { Vehicle } from '../../../model/wargaming/vehicle';
 import { VehicleData } from '../../../model/wargaming/vehicleStatistics';
 import { TankTreeItem } from '../model/tank-tree-item';
+import { AT_SPG, HEAVY_TANK, LIGHT_TANK, MEDIUM_TANK, SPG } from '../../../model/vehicle-types';
 
 export const buildTree = (vehicles: Vehicle[], playerTanks: VehicleData[]): TankTreeItem[] => {
   const result: TankTreeItem[] = [];
-
-  for (let tier = 1; tier < 11; tier++) {
-    const vehiclesByTier = vehicles.filter(v => v.tier === tier && !v.is_premium);
-    for (const vehicle of vehiclesByTier) {
-      const treeItem = convertVehicleToTreeItem(vehicle, playerTanks);
-      // TODO: next tanks and treeItem.row
-      result.push(treeItem);
-    }
-  }
+  const allTenIds = getAllTopVehicleIds(vehicles);
+  console.log(JSON.stringify(allTenIds));
 
   return result;
+};
+
+/**
+ * Reruns all vehicles tier 10 without outdated vehicles and sorted by types (SPG, AT, heavy, medium, light)
+ */
+const getAllTopVehicleIds = (vehicles: Vehicle[]): number[] => {
+  // The outdated tanks have no relations between tiers.
+  // So, here we are taking all tanks tier 9 and find all "nextTankId"
+  // These Ids should be present in the tree
+  const allReferencedTenTankIds = vehicles
+    .filter(v => !v.is_premium && v.next_tanks && v.tier === 9)
+    .flatMap(v => [...Object.keys(v.next_tanks)])
+    .map(t => +t);
+  const allTens = vehicles.filter(v => allReferencedTenTankIds.includes(v.tank_id));
+  return [
+    ...allTens.filter(t => t.type === SPG).map(v => v.tank_id),
+    ...allTens.filter(t => t.type === AT_SPG).map(v => v.tank_id),
+    ...allTens.filter(t => t.type === HEAVY_TANK).map(v => v.tank_id),
+    ...allTens.filter(t => t.type === MEDIUM_TANK).map(v => v.tank_id),
+    ...allTens.filter(t => t.type === LIGHT_TANK).map(v => v.tank_id),
+  ];
 };
 
 const convertVehicleToTreeItem = (vehicle: Vehicle, playerTanks: VehicleData[]): TankTreeItem => {
