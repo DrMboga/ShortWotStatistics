@@ -2,8 +2,6 @@ import { Vehicle } from '../../../model/wargaming/vehicle';
 import { VehicleData } from '../../../model/wargaming/vehicleStatistics';
 import { TankTreeItem } from '../model/tank-tree-item';
 
-// https://github.com/DrMboga/WotBlitzStatisticsPro/blob/main/WotBlitzStatisticsPro.WebUi/Pages/TanksTreeBase.cs
-
 export const buildTree = (vehicles: Vehicle[], playerTanks: VehicleData[]): TankTreeItem[] => {
   const result: TankTreeItem[] = [];
 
