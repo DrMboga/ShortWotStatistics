@@ -1,0 +1,964 @@
+[
+  {
+    "tankId": 3089,
+    "tier": 1,
+    "tankType": "lightTank",
+    "isPremium": false,
+    "image": "http://api.worldoftanks.eu/static/2.76.0/wot/encyclopedia/vehicle/germany-G12_Ltraktor.png",
+    "name": "Leichttraktor",
+    "priceCredit": 0,
+    "row": 5,
+    "isResearched": false,
+    "mastery": 0,
+    "winRate": 0,
+    "damage": 0,
+    "battles": 0,
+    "next": [
+      2065
+    ]
+  },
+  {
+    "tankId": 2065,
+    "tier": 2,
+    "tankType": "lightTank",
+    "isPremium": false,
+    "image": "http://api.worldoftanks.eu/static/2.76.0/wot/encyclopedia/vehicle/germany-G06_PzII.png",
+    "name": "Pz.Kpfw. II",
+    "priceCredit": 3000,
+    "row": 5,
+    "isResearched": false,
+    "mastery": 0,
+    "winRate": 0,
+    "damage": 0,
+    "battles": 0,
+    "next": [
+      4881,
+      13073
+    ]
+  },
+  {
+    "tankId": 4881,
+    "tier": 3,
+    "tankType": "lightTank",
+    "isPremium": false,
+    "image": "http://api.worldoftanks.eu/static/2.76.0/wot/encyclopedia/vehicle/germany-G102_Pz_III.png",
+    "name": "Pz.Kpfw. III Ausf. E",
+    "priceCredit": 35000,
+    "row": 4,
+    "isResearched": false,
+    "mastery": 0,
+    "winRate": 0,
+    "damage": 0,
+    "battles": 0,
+    "next": [
+      4369,
+      17937
+    ]
+  },
+  {
+    "tankId": 13073,
+    "tier": 3,
+    "tankType": "lightTank",
+    "isPremium": false,
+    "image": "http://api.worldoftanks.eu/static/2.76.0/wot/encyclopedia/vehicle/germany-G82_Pz_II_AusfG.png",
+    "name": "Pz.Kpfw. II Ausf. G",
+    "priceCredit": 39700,
+    "row": 8,
+    "isResearched": false,
+    "mastery": 0,
+    "winRate": 0,
+    "damage": 0,
+    "battles": 0,
+    "next": [
+      6161
+    ]
+  },
+  {
+    "tankId": 4369,
+    "tier": 4,
+    "tankType": "mediumTank",
+    "isPremium": false,
+    "image": "http://api.worldoftanks.eu/static/2.76.0/wot/encyclopedia/vehicle/germany-G10_PzIII_AusfJ.png",
+    "name": "Pz.Kpfw. III Ausf. J",
+    "priceCredit": 138000,
+    "row": 5,
+    "isResearched": false,
+    "mastery": 0,
+    "winRate": 0,
+    "damage": 0,
+    "battles": 0,
+    "next": [
+      2577,
+      18193
+    ]
+  },
+  {
+    "tankId": 6161,
+    "tier": 4,
+    "tankType": "lightTank",
+    "isPremium": false,
+    "image": "http://api.worldoftanks.eu/static/2.76.0/wot/encyclopedia/vehicle/germany-G25_PzII_Luchs.png",
+    "name": "Pz.Kpfw. II Luchs",
+    "priceCredit": 155000,
+    "row": 8,
+    "isResearched": false,
+    "mastery": 0,
+    "winRate": 0,
+    "damage": 0,
+    "battles": 0,
+    "next": [
+      5393
+    ]
+  },
+  {
+    "tankId": 17937,
+    "tier": 4,
+    "tankType": "AT-SPG",
+    "isPremium": false,
+    "image": "http://api.worldoftanks.eu/static/2.76.0/wot/encyclopedia/vehicle/germany-G101_StuG_III.png",
+    "name": "StuG III Ausf. B",
+    "priceCredit": 130000,
+    "row": 1,
+    "isResearched": false,
+    "mastery": 0,
+    "winRate": 0,
+    "damage": 0,
+    "battles": 0,
+    "next": [
+      1041,
+      5649
+    ]
+  },
+  {
+    "tankId": 1041,
+    "tier": 5,
+    "tankType": "AT-SPG",
+    "isPremium": false,
+    "image": "http://api.worldoftanks.eu/static/2.76.0/wot/encyclopedia/vehicle/germany-G05_StuG_40_AusfG.png",
+    "name": "StuG III Ausf. G",
+    "priceCredit": 422000,
+    "row": 2,
+    "isResearched": false,
+    "mastery": 0,
+    "winRate": 0,
+    "damage": 0,
+    "battles": 0,
+    "next": [
+      1553,
+      11793
+    ]
+  },
+  {
+    "tankId": 2577,
+    "tier": 5,
+    "tankType": "mediumTank",
+    "isPremium": false,
+    "image": "http://api.worldoftanks.eu/static/2.76.0/wot/encyclopedia/vehicle/germany-G13_VK3001H.png",
+    "name": "VK 30.01 (H)",
+    "priceCredit": 410000,
+    "row": 6,
+    "isResearched": false,
+    "mastery": 0,
+    "winRate": 0,
+    "damage": 0,
+    "battles": 0,
+    "next": [
+      2321,
+      15889
+    ]
+  },
+  {
+    "tankId": 5393,
+    "tier": 5,
+    "tankType": "lightTank",
+    "isPremium": false,
+    "image": "http://api.worldoftanks.eu/static/2.76.0/wot/encyclopedia/vehicle/germany-G26_VK1602.png",
+    "name": "VK 16.02 Leopard",
+    "priceCredit": 355000,
+    "row": 8,
+    "isResearched": false,
+    "mastery": 0,
+    "winRate": 0,
+    "damage": 0,
+    "battles": 0,
+    "next": [
+      10001
+    ]
+  },
+  {
+    "tankId": 5649,
+    "tier": 5,
+    "tankType": "SPG",
+    "isPremium": false,
+    "image": "http://api.worldoftanks.eu/static/2.76.0/wot/encyclopedia/vehicle/germany-G23_Grille.png",
+    "name": "Grille",
+    "priceCredit": 400000,
+    "row": 0,
+    "isResearched": false,
+    "mastery": 0,
+    "winRate": 0,
+    "damage": 0,
+    "battles": 0,
+    "next": [
+      273
+    ]
+  },
+  {
+    "tankId": 18193,
+    "tier": 5,
+    "tankType": "mediumTank",
+    "isPremium": false,
+    "image": "http://api.worldoftanks.eu/static/2.76.0/wot/encyclopedia/vehicle/germany-G81_Pz_IV_AusfH.png",
+    "name": "Pz.Kpfw. IV Ausf. H",
+    "priceCredit": 373000,
+    "row": 4,
+    "isResearched": false,
+    "mastery": 0,
+    "winRate": 0,
+    "damage": 0,
+    "battles": 0,
+    "next": [
+      7185
+    ]
+  },
+  {
+    "tankId": 273,
+    "tier": 6,
+    "tankType": "SPG",
+    "isPremium": false,
+    "image": "http://api.worldoftanks.eu/static/2.76.0/wot/encyclopedia/vehicle/germany-G02_Hummel.png",
+    "name": "Hummel",
+    "priceCredit": 930000,
+    "row": 0,
+    "isResearched": false,
+    "mastery": 0,
+    "winRate": 0,
+    "damage": 0,
+    "battles": 0,
+    "next": [
+      8977
+    ]
+  },
+  {
+    "tankId": 1553,
+    "tier": 6,
+    "tankType": "AT-SPG",
+    "isPremium": false,
+    "image": "http://api.worldoftanks.eu/static/2.76.0/wot/encyclopedia/vehicle/germany-G17_JagdPzIV.png",
+    "name": "Jagdpanzer IV",
+    "priceCredit": 910500,
+    "row": 1,
+    "isResearched": false,
+    "mastery": 0,
+    "winRate": 0,
+    "damage": 0,
+    "battles": 0,
+    "next": [
+      3857
+    ]
+  },
+  {
+    "tankId": 2321,
+    "tier": 6,
+    "tankType": "heavyTank",
+    "isPremium": false,
+    "image": "http://api.worldoftanks.eu/static/2.76.0/wot/encyclopedia/vehicle/germany-G15_VK3601H.png",
+    "name": "VK 36.01 (H)",
+    "priceCredit": 935000,
+    "row": 5,
+    "isResearched": false,
+    "mastery": 0,
+    "winRate": 0,
+    "damage": 0,
+    "battles": 0,
+    "next": [
+      529
+    ]
+  },
+  {
+    "tankId": 7185,
+    "tier": 6,
+    "tankType": "heavyTank",
+    "isPremium": false,
+    "image": "http://api.worldoftanks.eu/static/2.76.0/wot/encyclopedia/vehicle/germany-G27_VK3001P.png",
+    "name": "VK 30.01 (P)",
+    "priceCredit": 920000,
+    "row": 4,
+    "isResearched": false,
+    "mastery": 0,
+    "winRate": 0,
+    "damage": 0,
+    "battles": 0,
+    "next": [
+      10769
+    ]
+  },
+  {
+    "tankId": 10001,
+    "tier": 6,
+    "tankType": "lightTank",
+    "isPremium": false,
+    "image": "http://api.worldoftanks.eu/static/2.76.0/wot/encyclopedia/vehicle/germany-G66_VK2801.png",
+    "name": "VK 28.01",
+    "priceCredit": 945000,
+    "row": 8,
+    "isResearched": false,
+    "mastery": 0,
+    "winRate": 0,
+    "damage": 0,
+    "battles": 0,
+    "next": [
+      18961
+    ]
+  },
+  {
+    "tankId": 11793,
+    "tier": 6,
+    "tankType": "AT-SPG",
+    "isPremium": false,
+    "image": "http://api.worldoftanks.eu/static/2.76.0/wot/encyclopedia/vehicle/germany-G40_Nashorn.png",
+    "name": "Nashorn",
+    "priceCredit": 905000,
+    "row": 2,
+    "isResearched": false,
+    "mastery": 0,
+    "winRate": 0,
+    "damage": 0,
+    "battles": 0,
+    "next": [
+      11025
+    ]
+  },
+  {
+    "tankId": 15889,
+    "tier": 6,
+    "tankType": "mediumTank",
+    "isPremium": false,
+    "image": "http://api.worldoftanks.eu/static/2.76.0/wot/encyclopedia/vehicle/germany-G96_VK3002M.png",
+    "name": "VK 30.02 (M)",
+    "priceCredit": 915000,
+    "row": 7,
+    "isResearched": false,
+    "mastery": 0,
+    "winRate": 0,
+    "damage": 0,
+    "battles": 0,
+    "next": [
+      1297,
+      4113
+    ]
+  },
+  {
+    "tankId": 529,
+    "tier": 7,
+    "tankType": "heavyTank",
+    "isPremium": false,
+    "image": "http://api.worldoftanks.eu/static/2.76.0/wot/encyclopedia/vehicle/germany-G04_PzVI_Tiger_I.png",
+    "name": "Tiger I",
+    "priceCredit": 1390000,
+    "row": 5,
+    "isResearched": false,
+    "mastery": 0,
+    "winRate": 0,
+    "damage": 0,
+    "battles": 0,
+    "next": [
+      5137
+    ]
+  },
+  {
+    "tankId": 1297,
+    "tier": 7,
+    "tankType": "mediumTank",
+    "isPremium": false,
+    "image": "http://api.worldoftanks.eu/static/2.76.0/wot/encyclopedia/vehicle/germany-G03_PzV_Panther.png",
+    "name": "Panther",
+    "priceCredit": 1380000,
+    "row": 6,
+    "isResearched": false,
+    "mastery": 0,
+    "winRate": 0,
+    "damage": 0,
+    "battles": 0,
+    "next": [
+      8465
+    ]
+  },
+  {
+    "tankId": 3857,
+    "tier": 7,
+    "tankType": "AT-SPG",
+    "isPremium": false,
+    "image": "http://api.worldoftanks.eu/static/2.76.0/wot/encyclopedia/vehicle/germany-G18_JagdPanther.png",
+    "name": "Jagdpanther",
+    "priceCredit": 1345000,
+    "row": 1,
+    "isResearched": false,
+    "mastery": 0,
+    "winRate": 0,
+    "damage": 0,
+    "battles": 0,
+    "next": [
+      7697
+    ]
+  },
+  {
+    "tankId": 4113,
+    "tier": 7,
+    "tankType": "mediumTank",
+    "isPremium": false,
+    "image": "http://api.worldoftanks.eu/static/2.76.0/wot/encyclopedia/vehicle/germany-G24_VK3002DB.png",
+    "name": "VK 30.02 (D)",
+    "priceCredit": 1369000,
+    "row": 7,
+    "isResearched": false,
+    "mastery": 0,
+    "winRate": 0,
+    "damage": 0,
+    "battles": 0,
+    "next": [
+      13841
+    ]
+  },
+  {
+    "tankId": 8977,
+    "tier": 7,
+    "tankType": "SPG",
+    "isPremium": false,
+    "image": "http://api.worldoftanks.eu/static/2.76.0/wot/encyclopedia/vehicle/germany-G49_G_Panther.png",
+    "name": "G.W. Panther",
+    "priceCredit": 1380000,
+    "row": 0,
+    "isResearched": false,
+    "mastery": 0,
+    "winRate": 0,
+    "damage": 0,
+    "battles": 0,
+    "next": [
+      15377
+    ]
+  },
+  {
+    "tankId": 10769,
+    "tier": 7,
+    "tankType": "heavyTank",
+    "isPremium": false,
+    "image": "http://api.worldoftanks.eu/static/2.76.0/wot/encyclopedia/vehicle/germany-G57_PzVI_Tiger_P.png",
+    "name": "Tiger (P)",
+    "priceCredit": 1395000,
+    "row": 4,
+    "isResearched": false,
+    "mastery": 0,
+    "winRate": 0,
+    "damage": 0,
+    "battles": 0,
+    "next": [
+      10513,
+      19729
+    ]
+  },
+  {
+    "tankId": 11025,
+    "tier": 7,
+    "tankType": "AT-SPG",
+    "isPremium": false,
+    "image": "http://api.worldoftanks.eu/static/2.76.0/wot/encyclopedia/vehicle/germany-G43_Sturer_Emil.png",
+    "name": "Sturer Emil",
+    "priceCredit": 1300000,
+    "row": 2,
+    "isResearched": false,
+    "mastery": 0,
+    "winRate": 0,
+    "damage": 0,
+    "battles": 0,
+    "next": [
+      16657
+    ]
+  },
+  {
+    "tankId": 18961,
+    "tier": 7,
+    "tankType": "lightTank",
+    "isPremium": false,
+    "image": "http://api.worldoftanks.eu/static/2.76.0/wot/encyclopedia/vehicle/germany-G113_SP_I_C.png",
+    "name": "Spähpanzer SP I C",
+    "priceCredit": 1360000,
+    "row": 8,
+    "isResearched": false,
+    "mastery": 0,
+    "winRate": 0,
+    "damage": 0,
+    "battles": 0,
+    "next": [
+      20241
+    ]
+  },
+  {
+    "tankId": 5137,
+    "tier": 8,
+    "tankType": "heavyTank",
+    "isPremium": false,
+    "image": "http://api.worldoftanks.eu/static/2.76.0/wot/encyclopedia/vehicle/germany-G16_PzVIB_Tiger_II.png",
+    "name": "Tiger II",
+    "priceCredit": 2450000,
+    "row": 5,
+    "isResearched": false,
+    "mastery": 0,
+    "winRate": 0,
+    "damage": 0,
+    "battles": 0,
+    "next": [
+      9745
+    ]
+  },
+  {
+    "tankId": 7697,
+    "tier": 8,
+    "tankType": "AT-SPG",
+    "isPremium": false,
+    "image": "http://api.worldoftanks.eu/static/2.76.0/wot/encyclopedia/vehicle/germany-G37_Ferdinand.png",
+    "name": "Ferdinand",
+    "priceCredit": 2570000,
+    "row": 1,
+    "isResearched": false,
+    "mastery": 0,
+    "winRate": 0,
+    "damage": 0,
+    "battles": 0,
+    "next": [
+      7953
+    ]
+  },
+  {
+    "tankId": 8465,
+    "tier": 8,
+    "tankType": "mediumTank",
+    "isPremium": false,
+    "image": "http://api.worldoftanks.eu/static/2.76.0/wot/encyclopedia/vehicle/germany-G64_Panther_II.png",
+    "name": "Panther II",
+    "priceCredit": 2390000,
+    "row": 6,
+    "isResearched": false,
+    "mastery": 0,
+    "winRate": 0,
+    "damage": 0,
+    "battles": 0,
+    "next": [
+      10257
+    ]
+  },
+  {
+    "tankId": 10513,
+    "tier": 8,
+    "tankType": "heavyTank",
+    "isPremium": false,
+    "image": "http://api.worldoftanks.eu/static/2.76.0/wot/encyclopedia/vehicle/germany-G67_VK4502A.png",
+    "name": "VK 45.02 (P) Ausf. A",
+    "priceCredit": 2435000,
+    "row": 4,
+    "isResearched": false,
+    "mastery": 0,
+    "winRate": 0,
+    "damage": 0,
+    "battles": 0,
+    "next": [
+      7441
+    ]
+  },
+  {
+    "tankId": 13841,
+    "tier": 8,
+    "tankType": "mediumTank",
+    "isPremium": false,
+    "image": "http://api.worldoftanks.eu/static/2.76.0/wot/encyclopedia/vehicle/germany-G88_Indien_Panzer.png",
+    "name": "Indien-Panzer",
+    "priceCredit": 2420000,
+    "row": 7,
+    "isResearched": false,
+    "mastery": 0,
+    "winRate": 0,
+    "damage": 0,
+    "battles": 0,
+    "next": [
+      14865
+    ]
+  },
+  {
+    "tankId": 15377,
+    "tier": 8,
+    "tankType": "SPG",
+    "isPremium": false,
+    "image": "http://api.worldoftanks.eu/static/2.76.0/wot/encyclopedia/vehicle/germany-G94_GW_Tiger_P.png",
+    "name": "G.W. Tiger (P)",
+    "priceCredit": 2650000,
+    "row": 0,
+    "isResearched": false,
+    "mastery": 0,
+    "winRate": 0,
+    "damage": 0,
+    "battles": 0,
+    "next": [
+      8721
+    ]
+  },
+  {
+    "tankId": 16657,
+    "tier": 8,
+    "tankType": "AT-SPG",
+    "isPremium": false,
+    "image": "http://api.worldoftanks.eu/static/2.76.0/wot/encyclopedia/vehicle/germany-G99_RhB_Waffentrager.png",
+    "name": "Rhm.-Borsig Waffenträger",
+    "priceCredit": 2400000,
+    "row": 2,
+    "isResearched": false,
+    "mastery": 0,
+    "winRate": 0,
+    "damage": 0,
+    "battles": 0,
+    "next": [
+      16401
+    ]
+  },
+  {
+    "tankId": 19729,
+    "tier": 8,
+    "tankType": "heavyTank",
+    "isPremium": false,
+    "image": "http://api.worldoftanks.eu/static/2.76.0/wot/encyclopedia/vehicle/germany-G115_Typ_205B.png",
+    "name": "VK 100.01 (P)",
+    "priceCredit": 2540000,
+    "row": 3,
+    "isResearched": false,
+    "mastery": 0,
+    "winRate": 0,
+    "damage": 0,
+    "battles": 0,
+    "next": [
+      18705
+    ]
+  },
+  {
+    "tankId": 20241,
+    "tier": 8,
+    "tankType": "lightTank",
+    "isPremium": false,
+    "image": "http://api.worldoftanks.eu/static/2.76.0/wot/encyclopedia/vehicle/germany-G126_HWK_12.png",
+    "name": "HWK 12",
+    "priceCredit": 2440000,
+    "row": 8,
+    "isResearched": false,
+    "mastery": 0,
+    "winRate": 0,
+    "damage": 0,
+    "battles": 0,
+    "next": [
+      18449
+    ]
+  },
+  {
+    "tankId": 7441,
+    "tier": 9,
+    "tankType": "heavyTank",
+    "isPremium": false,
+    "image": "http://api.worldoftanks.eu/static/2.76.0/wot/encyclopedia/vehicle/germany-G58_VK4502P.png",
+    "name": "VK 45.02 (P) Ausf. B",
+    "priceCredit": 3598000,
+    "row": 4,
+    "isResearched": false,
+    "mastery": 0,
+    "winRate": 0,
+    "damage": 0,
+    "battles": 0,
+    "next": [
+      19473
+    ]
+  },
+  {
+    "tankId": 7953,
+    "tier": 9,
+    "tankType": "AT-SPG",
+    "isPremium": false,
+    "image": "http://api.worldoftanks.eu/static/2.76.0/wot/encyclopedia/vehicle/germany-G44_JagdTiger.png",
+    "name": "Jagdtiger",
+    "priceCredit": 3450000,
+    "row": 1,
+    "isResearched": false,
+    "mastery": 0,
+    "winRate": 0,
+    "damage": 0,
+    "battles": 0,
+    "next": [
+      12049
+    ]
+  },
+  {
+    "tankId": 8721,
+    "tier": 9,
+    "tankType": "SPG",
+    "isPremium": false,
+    "image": "http://api.worldoftanks.eu/static/2.76.0/wot/encyclopedia/vehicle/germany-G45_G_Tiger.png",
+    "name": "G.W. Tiger",
+    "priceCredit": 3600000,
+    "row": 0,
+    "isResearched": false,
+    "mastery": 0,
+    "winRate": 0,
+    "damage": 0,
+    "battles": 0,
+    "next": [
+      9233
+    ]
+  },
+  {
+    "tankId": 9745,
+    "tier": 9,
+    "tankType": "heavyTank",
+    "isPremium": false,
+    "image": "http://api.worldoftanks.eu/static/2.76.0/wot/encyclopedia/vehicle/germany-G55_E-75.png",
+    "name": "E 75",
+    "priceCredit": 3480000,
+    "row": 5,
+    "isResearched": false,
+    "mastery": 0,
+    "winRate": 0,
+    "damage": 0,
+    "battles": 0,
+    "next": [
+      9489
+    ]
+  },
+  {
+    "tankId": 10257,
+    "tier": 9,
+    "tankType": "mediumTank",
+    "isPremium": false,
+    "image": "http://api.worldoftanks.eu/static/2.76.0/wot/encyclopedia/vehicle/germany-G54_E-50.png",
+    "name": "E 50",
+    "priceCredit": 3450000,
+    "row": 6,
+    "isResearched": false,
+    "mastery": 0,
+    "winRate": 0,
+    "damage": 0,
+    "battles": 0,
+    "next": [
+      12305
+    ]
+  },
+  {
+    "tankId": 14865,
+    "tier": 9,
+    "tankType": "mediumTank",
+    "isPremium": false,
+    "image": "http://api.worldoftanks.eu/static/2.76.0/wot/encyclopedia/vehicle/germany-G91_Pro_Ag_A.png",
+    "name": "Leopard Prototyp A",
+    "priceCredit": 3450000,
+    "row": 7,
+    "isResearched": false,
+    "mastery": 0,
+    "winRate": 0,
+    "damage": 0,
+    "battles": 0,
+    "next": [
+      14609
+    ]
+  },
+  {
+    "tankId": 16401,
+    "tier": 9,
+    "tankType": "AT-SPG",
+    "isPremium": false,
+    "image": "http://api.worldoftanks.eu/static/2.76.0/wot/encyclopedia/vehicle/germany-G97_Waffentrager_IV.png",
+    "name": "Waffenträger auf Pz. IV",
+    "priceCredit": 3400000,
+    "row": 2,
+    "isResearched": false,
+    "mastery": 0,
+    "winRate": 0,
+    "damage": 0,
+    "battles": 0,
+    "next": [
+      19217
+    ]
+  },
+  {
+    "tankId": 18449,
+    "tier": 9,
+    "tankType": "lightTank",
+    "isPremium": false,
+    "image": "http://api.worldoftanks.eu/static/2.76.0/wot/encyclopedia/vehicle/germany-G103_RU_251.png",
+    "name": "Spähpanzer Ru 251",
+    "priceCredit": 3460000,
+    "row": 8,
+    "isResearched": false,
+    "mastery": 0,
+    "winRate": 0,
+    "damage": 0,
+    "battles": 0,
+    "next": [
+      19985
+    ]
+  },
+  {
+    "tankId": 18705,
+    "tier": 9,
+    "tankType": "heavyTank",
+    "isPremium": false,
+    "image": "http://api.worldoftanks.eu/static/2.76.0/wot/encyclopedia/vehicle/germany-G110_Typ_205.png",
+    "name": "Mäuschen",
+    "priceCredit": 3580000,
+    "row": 3,
+    "isResearched": false,
+    "mastery": 0,
+    "winRate": 0,
+    "damage": 0,
+    "battles": 0,
+    "next": [
+      6929
+    ]
+  },
+  {
+    "tankId": 6929,
+    "tier": 10,
+    "tankType": "heavyTank",
+    "isPremium": false,
+    "image": "http://api.worldoftanks.eu/static/2.76.0/wot/encyclopedia/vehicle/germany-G42_Maus.png",
+    "name": "Maus",
+    "priceCredit": 6100000,
+    "row": 3,
+    "isResearched": false,
+    "mastery": 0,
+    "winRate": 0,
+    "damage": 0,
+    "battles": 0,
+    "next": []
+  },
+  {
+    "tankId": 9233,
+    "tier": 10,
+    "tankType": "SPG",
+    "isPremium": false,
+    "image": "http://api.worldoftanks.eu/static/2.76.0/wot/encyclopedia/vehicle/germany-G61_G_E.png",
+    "name": "G.W. E 100",
+    "priceCredit": 6100000,
+    "row": 0,
+    "isResearched": false,
+    "mastery": 0,
+    "winRate": 0,
+    "damage": 0,
+    "battles": 0,
+    "next": []
+  },
+  {
+    "tankId": 9489,
+    "tier": 10,
+    "tankType": "heavyTank",
+    "isPremium": false,
+    "image": "http://api.worldoftanks.eu/static/2.76.0/wot/encyclopedia/vehicle/germany-G56_E-100.png",
+    "name": "E 100",
+    "priceCredit": 6100000,
+    "row": 5,
+    "isResearched": false,
+    "mastery": 0,
+    "winRate": 0,
+    "damage": 0,
+    "battles": 0,
+    "next": []
+  },
+  {
+    "tankId": 12049,
+    "tier": 10,
+    "tankType": "AT-SPG",
+    "isPremium": false,
+    "image": "http://api.worldoftanks.eu/static/2.76.0/wot/encyclopedia/vehicle/germany-G72_JagdPz_E100.png",
+    "name": "Jagdpanzer E 100",
+    "priceCredit": 6100000,
+    "row": 1,
+    "isResearched": false,
+    "mastery": 0,
+    "winRate": 0,
+    "damage": 0,
+    "battles": 0,
+    "next": []
+  },
+  {
+    "tankId": 12305,
+    "tier": 10,
+    "tankType": "mediumTank",
+    "isPremium": false,
+    "image": "http://api.worldoftanks.eu/static/2.76.0/wot/encyclopedia/vehicle/germany-G73_E50_Ausf_M.png",
+    "name": "E 50 Ausf. M",
+    "priceCredit": 6100000,
+    "row": 6,
+    "isResearched": false,
+    "mastery": 0,
+    "winRate": 0,
+    "damage": 0,
+    "battles": 0,
+    "next": []
+  },
+  {
+    "tankId": 14609,
+    "tier": 10,
+    "tankType": "mediumTank",
+    "isPremium": false,
+    "image": "http://api.worldoftanks.eu/static/2.76.0/wot/encyclopedia/vehicle/germany-G89_Leopard1.png",
+    "name": "Leopard 1",
+    "priceCredit": 6100000,
+    "row": 7,
+    "isResearched": false,
+    "mastery": 0,
+    "winRate": 0,
+    "damage": 0,
+    "battles": 0,
+    "next": []
+  },
+  {
+    "tankId": 19217,
+    "tier": 10,
+    "tankType": "AT-SPG",
+    "isPremium": false,
+    "image": "http://api.worldoftanks.eu/static/2.76.0/wot/encyclopedia/vehicle/germany-G121_Grille_15_L63.png",
+    "name": "Grille 15",
+    "priceCredit": 6100000,
+    "row": 2,
+    "isResearched": false,
+    "mastery": 0,
+    "winRate": 0,
+    "damage": 0,
+    "battles": 0,
+    "next": []
+  },
+  {
+    "tankId": 19473,
+    "tier": 10,
+    "tankType": "heavyTank",
+    "isPremium": false,
+    "image": "http://api.worldoftanks.eu/static/2.76.0/wot/encyclopedia/vehicle/germany-G134_PzKpfw_VII.png",
+    "name": "Pz.Kpfw. VII",
+    "priceCredit": 6100000,
+    "row": 4,
+    "isResearched": false,
+    "mastery": 0,
+    "winRate": 0,
+    "damage": 0,
+    "battles": 0,
+    "next": []
+  },
+  {
+    "tankId": 19985,
+    "tier": 10,
+    "tankType": "lightTank",
+    "isPremium": false,
+    "image": "http://api.worldoftanks.eu/static/2.76.0/wot/encyclopedia/vehicle/germany-G125_Spz_57_Rh.png",
+    "name": "Rheinmetall Panzerwagen",
+    "priceCredit": 6100000,
+    "row": 8,
+    "isResearched": false,
+    "mastery": 0,
+    "winRate": 0,
+    "damage": 0,
+    "battles": 0,
+    "next": []
+  }
+]

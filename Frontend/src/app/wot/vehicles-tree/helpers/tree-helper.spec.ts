@@ -24,6 +24,6 @@ describe('tree helper', () => {
 
   it('should build a tree with appropriate row positions', () => {
     const tree = buildTree(vehiclesGermany, []);
-    console.log('vehicles count', tree.length);
+    console.log('vehicles', JSON.stringify(tree));
   });
 });

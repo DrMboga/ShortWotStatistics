@@ -12,4 +12,5 @@ export interface TankTreeItem {
   damage: number;
   battles: number;
   priceCredit: number;
+  next: number[];
 }
