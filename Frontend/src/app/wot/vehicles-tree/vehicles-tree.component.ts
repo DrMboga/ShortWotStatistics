@@ -6,10 +6,25 @@ import { WargamingApiService } from '../../services/wargaming-api.service';
 import { toObservable, toSignal } from '@angular/core/rxjs-interop';
 import { of, switchMap } from 'rxjs';
 import { buildTree } from './helpers/tree-helper';
+import { TanksByTierPipe } from './pipes/tanks-by-tier.pipe';
+import { VehicleTypePipe } from '../../pipes/vehicle-type.pipe';
+import { VehicleLevelPipe } from '../../pipes/vehicle-level.pipe';
+import { DecimalPipe } from '@angular/common';
+import { MasteryPipe } from '../../pipes/mastery.pipe';
+import { ScaleColorPipe } from '../../pipes/scale-color.pipe';
 
 @Component({
   selector: 'app-vehicles-tree',
-  imports: [MatButton, NationFlagPipe],
+  imports: [
+    MatButton,
+    NationFlagPipe,
+    TanksByTierPipe,
+    VehicleTypePipe,
+    VehicleLevelPipe,
+    DecimalPipe,
+    MasteryPipe,
+    ScaleColorPipe,
+  ],
   templateUrl: './vehicles-tree.component.html',
   styleUrl: './vehicles-tree.component.css',
 })
@@ -27,6 +42,13 @@ export class VehiclesTreeComponent {
     'japan',
     'germany',
   ];
+
+  readonly tiers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+  public readonly cardWidth = 200;
+  public readonly cardHeight = 120;
+  public readonly leftMargin = 30;
+  public readonly frameHeight = 9 * (this.cardHeight + 20) + 20;
 
   readonly accountStore = inject(AccountStore);
   readonly wotApi = inject(WargamingApiService);

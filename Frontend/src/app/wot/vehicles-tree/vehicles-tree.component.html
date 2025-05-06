@@ -16,16 +16,97 @@
   }
 </div>
 
-{{ currentNation() }}
-
-@if (playerTanks(); as playerTanks) {
-  {{ playerTanks.length }}
-}
-
-@if (tankopedia(); as tankopedia) {
-  {{ tankopedia.length }}
-}
-
 @if (tanksTreeItems(); as tankTreeItems) {
-  {{ tankTreeItems.length }}
+  <div style="overflow-y: auto; overflow-x: auto;">
+    <svg xmlns="http://www.w3.org/2000/svg"
+         [attr.height]="frameHeight"
+         [attr.width]="((cardWidth + 40) * 10)">
+
+      <!-- Background -->
+      @for (tier of tiers; track tier) {
+        <rect [attr.x]="(tier * (cardWidth + 40))"
+              y="0"
+              [attr.width]="(cardWidth + 40)"
+              [attr.height]="frameHeight"
+              [attr.fill]="(tier % 2 == 0 ? '#464A5D' : '#3A3D4B')">
+        </rect>
+      }
+
+      <!-- Connections -->
+
+      <!-- TankCards -->
+      @for (tier of tiers; track tier) {
+        @for (tank of tankTreeItems | tanksByTier: tier; track tank.tankId) {
+          <!-- Tank card svg-->
+          <svg xmlns="http://www.w3.org/2000/svg"
+               [attr.x]="((tier - 1) * (cardWidth + 40) + 20)"
+               [attr.y]="(tank.row * (cardHeight + 20) + 20)"
+               [attr.width]="cardWidth"
+               [attr.height]="cardHeight">
+            <g>
+              <!--Rect fill = #275950 - researched, #2E353B - unresearched, #66502b - prem-->
+              <rect x="0"
+                    y="0"
+                    [attr.width]="cardWidth"
+                    [attr.height]="cardHeight"
+                    rx="10"
+                    ry="10"
+                    [attr.fill]="(tank.isResearched ? (tank.isPremium ? '#66502b' : '#275950') : '#2E353B')">
+              </rect>
+
+              <!--Tank type-->
+              <image x="7" y="7" width="24" height="24" [attr.href]="tank.tankType | vehicleType: tank.isPremium" />
+              <!--Tank tier-->
+              <image x="22" y="10" width="27" height="17" [attr.href]="tank.tier | vehicleLevel" />
+              <!--TankImage-->
+              <image [attr.x]="((cardWidth - 95) / 2)" [attr.y]="((cardHeight - 70) / 2)" width="95" height="70" [attr.href]="tank.image" />
+              <!--TankName-->
+              <text x="33" [attr.y]="(cardHeight - 25)" [attr.fill]="(tank.isPremium ? '#d4d481' : 'white')" text-anchor="start" alignment-baseline="before-edge" font-family="Segoe UI" font-size="14">
+               {{tank.name}}
+              </text>
+
+              <!--Researched: Mastery, Winrate, AvgDmg, Battles-->
+              @if (tank.isResearched && tank.winRate && tank.damage && tank.battles)
+              {
+                <g>
+                  @if (tank.mastery) {
+                    <!--Mastery-->
+                    <image x="2" [attr.y]="(cardHeight - 32)" width="32" height="32" [attr.href]="tank.mastery | mastery" />
+                  }
+                  <!--Winrate-->
+                  <image x="7" y="40" width="20" height="20" href="./assets/account/battle.png" />
+                  <text x="32" y="40" fill="white" text-anchor="start" alignment-baseline="before-edge" font-family="Segoe UI" font-weight="bold" font-size="12">
+                    {{tank.winRate | number: '1.0-0'}}%
+                  </text>
+                  <line x1="8" y1="60" x2="58" y2="60" [attr.style]="(`stroke:${tank.winRate | scaleColor};stroke-width:3`)" />
+                  <!--AvgDmg-->
+                  <image [attr.x]="(cardWidth - 62)" y="40" width="20" height="20" href="./assets/kpi/damage.png" />
+                  <text [attr.x]="(cardWidth - 37)" y="40" fill="white" text-anchor="start" alignment-baseline="before-edge" font-family="Segoe UI" font-size="12">
+                    {{tank.damage | number: '1.0-0'}}
+                  </text>
+                  <!--Battles-->
+                  <image [attr.x]="(cardWidth - 62)" y="9" width="20" height="20" href="./assets/account/battle.png" />
+                  <text [attr.x]="(cardWidth - 37)" y="9" fill="white" text-anchor="start" alignment-baseline="before-edge" font-family="Segoe UI" font-size="12">
+                    {{tank.battles | number: '1.0-0'}}
+                  </text>
+                </g>
+              }
+              <!--Unresearched: XP, Credits-->
+              @if (!tank.isResearched)
+              {
+                <g>
+                  <!--Credits-->
+                  <image x="8" [attr.y]="(cardHeight - 50)" width="20" height="20" href="./assets/account/CreditsIcon-3.png" />
+                  <text x="32" [attr.y]="(cardHeight - 50)" fill="white" text-anchor="start" alignment-baseline="before-edge" font-family="Segoe UI" font-size="12">
+                    {{tank.priceCredit / 1000 | number: '1.0-0'}} K
+                  </text>
+                </g>
+              }
+            </g>
+          </svg>
+        }
+      }
+
+    </svg>
+  </div>
 }

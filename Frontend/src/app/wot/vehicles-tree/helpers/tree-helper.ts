@@ -18,6 +18,9 @@ export const buildTree = (vehicles: Vehicle[], playerTanks: VehicleData[]): Tank
   const filteredTanks = vehicles.filter(
     v => !v.is_premium && ((v.next_tanks && v.tier < 10) || v.tier === 10),
   );
+  if (filteredTanks.length === 0) {
+    return [];
+  }
   const allTens = getAllTopVehicleIds(filteredTanks);
 
   const tenSPGs = allTens.filter(t => t.type === SPG);
