@@ -12,6 +12,8 @@ import { VehicleLevelPipe } from '../../pipes/vehicle-level.pipe';
 import { DecimalPipe } from '@angular/common';
 import { MasteryPipe } from '../../pipes/mastery.pipe';
 import { ScaleColorPipe } from '../../pipes/scale-color.pipe';
+import { ConnectionPathsPipe } from './pipes/connection-paths.pipe';
+import { FrameHeightPipe } from './pipes/frame-height.pipe';
 
 @Component({
   selector: 'app-vehicles-tree',
@@ -24,6 +26,8 @@ import { ScaleColorPipe } from '../../pipes/scale-color.pipe';
     DecimalPipe,
     MasteryPipe,
     ScaleColorPipe,
+    ConnectionPathsPipe,
+    FrameHeightPipe,
   ],
   templateUrl: './vehicles-tree.component.html',
   styleUrl: './vehicles-tree.component.css',
@@ -47,8 +51,6 @@ export class VehiclesTreeComponent {
 
   public readonly cardWidth = 200;
   public readonly cardHeight = 120;
-  public readonly leftMargin = 30;
-  public readonly frameHeight = 9 * (this.cardHeight + 20) + 20;
 
   readonly accountStore = inject(AccountStore);
   readonly wotApi = inject(WargamingApiService);

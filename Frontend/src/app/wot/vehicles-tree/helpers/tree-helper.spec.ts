@@ -1,4 +1,5 @@
 import tankopediaGermany from '../../../dataExamples/tankopediaVehiclesGermany.json';
+import tankopediaUsa from '../../../dataExamples/tankopediaVehiclesUsa.json';
 import { Vehicle } from '../../../model/wargaming/vehicle';
 import { buildTree } from './tree-helper';
 
@@ -19,7 +20,7 @@ describe('tree helper', () => {
   let vehiclesGermany: Vehicle[];
 
   beforeEach(() => {
-    vehiclesGermany = convertJsonToVehicles(tankopediaGermany);
+    vehiclesGermany = convertJsonToVehicles(tankopediaUsa);
   });
 
   it('should build a tree with appropriate row positions', () => {

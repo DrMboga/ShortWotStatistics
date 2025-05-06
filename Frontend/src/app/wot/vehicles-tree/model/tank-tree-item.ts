@@ -13,4 +13,5 @@ export interface TankTreeItem {
   battles: number;
   priceCredit: number;
   next: number[];
+  nextRows: number[];
 }

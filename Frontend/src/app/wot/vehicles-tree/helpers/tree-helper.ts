@@ -55,15 +55,17 @@ export const buildTree = (vehicles: Vehicle[], playerTanks: VehicleData[]): Tank
         console.warn(`Can not find row for tank ${vehicle.tank_id} (${vehicle.short_name})`);
         continue;
       }
-      result.push(convertVehicleToTreeItem(vehicle, currentTankRow, playerTanks));
+      const currentTankCard = convertVehicleToTreeItem(vehicle, currentTankRow, playerTanks);
 
       // Calculating next rows
       if (!vehicle.next_tanks) {
+        result.push(currentTankCard);
         continue;
       }
       const nextTanks = Object.keys(vehicle.next_tanks).map(i => +i);
       if (nextTanks.length === 1) {
         tankRowsMap.set(nextTanks[0], currentTankRow);
+        currentTankCard.nextRows.push(currentTankRow);
       } else {
         // if vehicle has more than one nextTanks, calculate its row number, sorting them by its end ten tier row number
         const sortedNextTanks = sortByRowWeights(nextTanks, sortedTenIds, filteredTanks).sort(
@@ -73,8 +75,10 @@ export const buildTree = (vehicles: Vehicle[], playerTanks: VehicleData[]): Tank
         for (let i = 0; i < sortedNextTanks.length; i++) {
           const sortedNextTank = sortedNextTanks[i];
           tankRowsMap.set(sortedNextTank.tankId, sortedNextTank.weight);
+          currentTankCard.nextRows.push(sortedNextTank.weight);
         }
       }
+      result.push(currentTankCard);
     }
   }
 
@@ -145,7 +149,7 @@ const sortTenTiersByBranches = (tenIds: number[], vehicles: Vehicle[]): number[]
       }
     }
     // Shake rows to put branching rows together
-    repeats.forEach((value: number[], key: number) => {
+    repeats.forEach((value: number[], _: number) => {
       const gaps = findSequenceGaps(value);
       if (gaps.length > 0) {
         for (const gap of gaps) {
@@ -249,7 +253,7 @@ const convertVehicleToTreeItem = (
     tankType: vehicle.type,
     isPremium: vehicle.is_premium,
     image: vehicle.images.big_icon,
-    name: vehicle.name,
+    name: vehicle.short_name,
     priceCredit: vehicle.price_credit,
 
     row,
@@ -259,5 +263,6 @@ const convertVehicleToTreeItem = (
     damage,
     battles,
     next: vehicle.next_tanks ? Object.keys(vehicle.next_tanks).map(k => +k) : [],
+    nextRows: [],
   } as TankTreeItem;
 };

@@ -96,8 +96,7 @@ export class WargamingApiService {
     language: string = 'ru',
   ): Observable<VehicleData[]> {
     const urlParams = this.buildQueryParams(applicationId, accountId, accessToken, language);
-    // const url = `https://api.worldoftanks.eu/wot/tanks/stats/?${urlParams}`;
-    const url = './assets/playerVehicleStatistics.json';
+    const url = `https://api.worldoftanks.eu/wot/tanks/stats/?${urlParams}`;
     return this.http.get(url).pipe(
       map((response: any) => {
         const data = response?.data[accountId];
@@ -135,8 +134,7 @@ export class WargamingApiService {
     nation: string,
     language: string = 'ru',
   ): Observable<Vehicle[]> {
-    // const url = `https://api.worldoftanks.eu/wot/encyclopedia/vehicles/?application_id=${applicationId}&nation=${nation}&fields=is_wheeled%2Cis_premium%2Ctag%2Cimages%2Ctank_id%2Ccrew%2Ctype%2Cdescription%2Cshort_name%2Cnext_tanks%2Cnation%2Ctier%2Cprices_xp%2Cis_gift%2Cname%2Cprice_gold%2Cprice_credit&language=${language}`;
-    const url = './assets/tankopediaVehiclesGermany.json';
+    const url = `https://api.worldoftanks.eu/wot/encyclopedia/vehicles/?application_id=${applicationId}&nation=${nation}&fields=is_wheeled%2Cis_premium%2Ctag%2Cimages%2Ctank_id%2Ccrew%2Ctype%2Cdescription%2Cshort_name%2Cnext_tanks%2Cnation%2Ctier%2Cprices_xp%2Cis_gift%2Cname%2Cprice_gold%2Cprice_credit&language=${language}`;
     return this.getVehicles(url);
   }
 
