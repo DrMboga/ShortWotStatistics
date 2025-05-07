@@ -4,7 +4,7 @@ import { NationFlagPipe } from '../../pipes/nation-flag.pipe';
 import { AccountStore } from '../../store/account.store';
 import { WargamingApiService } from '../../services/wargaming-api.service';
 import { toObservable, toSignal } from '@angular/core/rxjs-interop';
-import { of, switchMap } from 'rxjs';
+import { of, switchMap, tap } from 'rxjs';
 import { buildTree } from './helpers/tree-helper';
 import { TanksByTierPipe } from './pipes/tanks-by-tier.pipe';
 import { VehicleTypePipe } from '../../pipes/vehicle-type.pipe';
@@ -14,6 +14,7 @@ import { MasteryPipe } from '../../pipes/mastery.pipe';
 import { ScaleColorPipe } from '../../pipes/scale-color.pipe';
 import { ConnectionPathsPipe } from './pipes/connection-paths.pipe';
 import { FrameHeightPipe } from './pipes/frame-height.pipe';
+import { MatProgressSpinner } from '@angular/material/progress-spinner';
 
 @Component({
   selector: 'app-vehicles-tree',
@@ -28,6 +29,7 @@ import { FrameHeightPipe } from './pipes/frame-height.pipe';
     ScaleColorPipe,
     ConnectionPathsPipe,
     FrameHeightPipe,
+    MatProgressSpinner,
   ],
   templateUrl: './vehicles-tree.component.html',
   styleUrl: './vehicles-tree.component.css',
@@ -56,6 +58,8 @@ export class VehiclesTreeComponent {
   readonly wotApi = inject(WargamingApiService);
 
   currentNation = signal<string>(this.nations[0]);
+
+  loading = true;
 
   private readonly accountLoginInfo = computed<{
     applicationId: string;
@@ -107,7 +111,10 @@ export class VehiclesTreeComponent {
         if (!params.applicationId) {
           return of([]);
         }
-        return this.wotApi.getTreeTanksInfo(params.applicationId, params.nation);
+        this.loading = true;
+        return this.wotApi
+          .getTreeTanksInfo(params.applicationId, params.nation)
+          .pipe(tap(() => (this.loading = false)));
       }),
     ),
   );

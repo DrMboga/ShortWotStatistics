@@ -49,40 +49,85 @@ export const buildTree = (vehicles: Vehicle[], playerTanks: VehicleData[]): Tank
   for (let tier = 1; tier < 11; tier++) {
     const tanksOfTheTier = filteredTanks.filter(v => v.tier === tier);
 
+    let lostVehicleIds: number[] = [];
     for (const vehicle of tanksOfTheTier) {
       let currentTankRow = tankRowsMap.get(vehicle.tank_id);
       if (currentTankRow === null || currentTankRow === undefined) {
-        console.warn(`Can not find row for tank ${vehicle.tank_id} (${vehicle.short_name})`);
+        lostVehicleIds.push(vehicle.tank_id);
         continue;
       }
-      const currentTankCard = convertVehicleToTreeItem(vehicle, currentTankRow, playerTanks);
 
-      // Calculating next rows
-      if (!vehicle.next_tanks) {
-        result.push(currentTankCard);
-        continue;
-      }
-      const nextTanks = Object.keys(vehicle.next_tanks).map(i => +i);
-      if (nextTanks.length === 1) {
-        tankRowsMap.set(nextTanks[0], currentTankRow);
-        currentTankCard.nextRows.push(currentTankRow);
-      } else {
-        // if vehicle has more than one nextTanks, calculate its row number, sorting them by its end ten tier row number
-        const sortedNextTanks = sortByRowWeights(nextTanks, sortedTenIds, filteredTanks).sort(
-          (a, b) => b.weight - a.weight,
-        );
+      const currentTankCard = createTankCardItemAndConnections(
+        tankRowsMap,
+        sortedTenIds,
+        filteredTanks,
+        vehicle,
+        currentTankRow,
+        playerTanks,
+      );
+      result.push(currentTankCard);
 
-        for (let i = 0; i < sortedNextTanks.length; i++) {
-          const sortedNextTank = sortedNextTanks[i];
-          tankRowsMap.set(sortedNextTank.tankId, sortedNextTank.weight);
-          currentTankCard.nextRows.push(sortedNextTank.weight);
+      if (lostVehicleIds.length > 0) {
+        for (let i = 0; i < currentTankCard.next.length; i++) {
+          const nextTankId = currentTankCard.next[i];
+          if (lostVehicleIds.includes(nextTankId)) {
+            // This is a rare case when tank references to the tank of the same level
+            const lostVehicle = filteredTanks.find(t => t.tank_id === nextTankId);
+            const lostTankRow =
+              i < currentTankCard.nextRows.length ? currentTankCard.nextRows[i] : currentTankRow;
+            if (lostVehicle) {
+              const lostVehicleCard = createTankCardItemAndConnections(
+                tankRowsMap,
+                sortedTenIds,
+                filteredTanks,
+                lostVehicle,
+                lostTankRow,
+                playerTanks,
+              );
+              result.push(lostVehicleCard);
+              lostVehicleIds = [...lostVehicleIds.filter(v => v !== nextTankId)];
+              currentTankCard.sameLevelRows.push(lostTankRow);
+            }
+          }
         }
       }
-      result.push(currentTankCard);
     }
   }
 
   return result;
+};
+
+const createTankCardItemAndConnections = (
+  tankRowsMap: Map<number, number>,
+  sortedTenIds: number[],
+  filteredTanks: Vehicle[],
+  vehicle: Vehicle,
+  currentTankRow: number,
+  playerTanks: VehicleData[],
+): TankTreeItem => {
+  const currentTankCard = convertVehicleToTreeItem(vehicle, currentTankRow, playerTanks);
+
+  // Calculating next rows
+  if (!vehicle.next_tanks) {
+    return currentTankCard;
+  }
+  const nextTanks = Object.keys(vehicle.next_tanks).map(i => +i);
+  if (nextTanks.length === 1) {
+    tankRowsMap.set(nextTanks[0], currentTankRow);
+    currentTankCard.nextRows.push(currentTankRow);
+  } else {
+    // if vehicle has more than one nextTanks, calculate its row number, sorting them by its end ten tier row number
+    const sortedNextTanks = sortByRowWeights(nextTanks, sortedTenIds, filteredTanks).sort(
+      (a, b) => b.weight - a.weight,
+    );
+
+    for (let i = 0; i < sortedNextTanks.length; i++) {
+      const sortedNextTank = sortedNextTanks[i];
+      tankRowsMap.set(sortedNextTank.tankId, sortedNextTank.weight);
+      currentTankCard.nextRows.push(sortedNextTank.weight);
+    }
+  }
+  return currentTankCard;
 };
 
 /**
@@ -121,9 +166,16 @@ const sortTenTiersByBranches = (tenIds: number[], vehicles: Vehicle[]): number[]
         console.warn(`Could not find ref tank for tier ${tier} and row ${row}`);
         continue;
       }
-      const currentTierTankId = allVehiclesByTier.find(t =>
-        t.nextTanks.includes(refTankId),
-      )?.tankId;
+      let currentTierTankId = allVehiclesByTier.find(t => t.nextTanks.includes(refTankId))?.tankId;
+
+      if (!currentTierTankId) {
+        // There is one strange thing in the USA tree. The T6 Medium has the next tank on the same level. This is only for this situation
+        const currentTierVehicles = vehicles
+          .filter(v => !v.is_premium && v.next_tanks && v.tier === tier + 1)
+          .map(v => ({ tankId: v.tank_id, nextTanks: Object.keys(v.next_tanks).map(i => +i) }));
+        currentTierTankId = currentTierVehicles.find(t => t.nextTanks.includes(refTankId))?.tankId;
+      }
+
       if (currentTierTankId) {
         // Check repeats
         let repeatFound = false;
@@ -246,6 +298,11 @@ const convertVehicleToTreeItem = (
   const battles = playerTank?.all?.battles ?? 0;
   const winRate = battles === 0 ? 0 : (100 * (playerTank?.all?.wins ?? 0)) / battles;
   const damage = battles === 0 ? 0 : (playerTank?.all?.damage_dealt ?? 0) / battles;
+  let priceXp: number = 0;
+  if (vehicle.prices_xp) {
+    const xpPrices = Object.values(vehicle.prices_xp).map(v => +v);
+    priceXp = Math.min(...xpPrices);
+  }
 
   return {
     tankId: vehicle.tank_id,
@@ -255,7 +312,7 @@ const convertVehicleToTreeItem = (
     image: vehicle.images.big_icon,
     name: vehicle.short_name,
     priceCredit: vehicle.price_credit,
-
+    priceXp,
     row,
     isResearched: playerTank !== undefined,
     mastery: playerTank?.mark_of_mastery ?? 0,
@@ -264,5 +321,6 @@ const convertVehicleToTreeItem = (
     battles,
     next: vehicle.next_tanks ? Object.keys(vehicle.next_tanks).map(k => +k) : [],
     nextRows: [],
+    sameLevelRows: [],
   } as TankTreeItem;
 };

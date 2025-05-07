@@ -12,6 +12,8 @@ export interface TankTreeItem {
   damage: number;
   battles: number;
   priceCredit: number;
+  priceXp: number;
   next: number[];
   nextRows: number[];
+  sameLevelRows: number[]; // Only for one case in the USA tree
 }
