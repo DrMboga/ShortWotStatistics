@@ -1,6 +1,6 @@
 import { inject, Injectable } from '@angular/core';
 import { WotPlayerPersonalData } from '../model/wargaming/wotPlayerPersonalData';
-import { map, Observable, of, switchMap } from 'rxjs';
+import { Observable, of, switchMap } from 'rxjs';
 import { IndexedDBService } from '../indexedDb/indexed-db.service';
 import { PlayerHistory } from '../model/player-history';
 

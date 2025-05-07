@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { NgxIndexedDBService } from 'ngx-indexed-db';
-import { catchError, map, Observable, of, switchMap } from 'rxjs';
+import { map, Observable, of, switchMap } from 'rxjs';
 import { AccountAuthenticationInfo } from '../model/account-authentication-info';
 import {
   BLITZ_PLAYER_HISTORY_COLLECTION_NAME,
