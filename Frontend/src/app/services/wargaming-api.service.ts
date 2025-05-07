@@ -39,8 +39,10 @@ export class WargamingApiService {
     let url: string;
     if (blitz) {
       url = `https://api.wotblitz.eu/wotb/account/info/?${urlParams}`;
+      // url = `./assets/wotPlayerPersonalData.json`;
     } else {
       url = `https://api.worldoftanks.eu/wot/account/info/?${urlParams}`;
+      // url = `./assets/playerPersonalData.json`;
     }
 
     return this.http.get(url).pipe(

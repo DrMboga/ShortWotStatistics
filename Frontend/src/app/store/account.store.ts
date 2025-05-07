@@ -14,6 +14,7 @@ import { tapResponse } from '@ngrx/operators';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { WargamingApiService } from '../services/wargaming-api.service';
 import { WotPlayerPersonalData } from '../model/wargaming/wotPlayerPersonalData';
+import { PlayerHistoryService } from '../services/player-history.service';
 
 type AccountState = {
   applicationId: string;
@@ -70,7 +71,12 @@ export const AccountStore = signalStore(
     }),
   })),
   withMethods(
-    (store, indexedDb = inject(IndexedDBService), wargamingApi = inject(WargamingApiService)) => ({
+    (
+      store,
+      indexedDb = inject(IndexedDBService),
+      wargamingApi = inject(WargamingApiService),
+      historyService = inject(PlayerHistoryService),
+    ) => ({
       setApplicationId: rxMethod<string>(
         pipe(
           switchMap(applicationId => {
@@ -153,6 +159,9 @@ export const AccountStore = signalStore(
                       console.error(err);
                     },
                   }),
+                  switchMap(wotPlayerPrivateInfo =>
+                    historyService.saveNewWotData(wotPlayerPrivateInfo),
+                  ),
                 );
             } else {
               return of(undefined);
@@ -179,6 +188,9 @@ export const AccountStore = signalStore(
                       console.error(err);
                     },
                   }),
+                  switchMap(wotPlayerPrivateInfo =>
+                    historyService.saveNewBlitzData(wotPlayerPrivateInfo),
+                  ),
                 );
             } else {
               return of(undefined);

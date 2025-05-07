@@ -1,8 +1,13 @@
 import { Injectable } from '@angular/core';
 import { NgxIndexedDBService } from 'ngx-indexed-db';
-import { map, Observable, of, switchMap } from 'rxjs';
+import { catchError, map, Observable, of, switchMap } from 'rxjs';
 import { AccountAuthenticationInfo } from '../model/account-authentication-info';
-import { WG_ACCOUNT_AUTH_COLLECTION_NAME } from './db-config';
+import {
+  BLITZ_PLAYER_HISTORY_COLLECTION_NAME,
+  WG_ACCOUNT_AUTH_COLLECTION_NAME,
+  WOT_PLAYER_HISTORY_COLLECTION_NAME,
+} from './db-config';
+import { PlayerHistory } from '../model/player-history';
 
 @Injectable({
   providedIn: 'root',
@@ -80,4 +85,45 @@ export class IndexedDBService {
       }),
     );
   }
+
+  public getWotPlayerHistory(accountId: number): Observable<PlayerHistory[]> {
+    return this.dbService
+      .getAllByIndex(WOT_PLAYER_HISTORY_COLLECTION_NAME, 'accountId', accountId)
+      .pipe(
+        map((history: any[]) => {
+          return history.map(mapDbDataToPlayerHistory);
+        }),
+      );
+  }
+  public getBlitzPlayerHistory(accountId: number): Observable<PlayerHistory[]> {
+    return this.dbService
+      .getAllByIndex(BLITZ_PLAYER_HISTORY_COLLECTION_NAME, 'accountId', accountId)
+      .pipe(
+        map((history: any[]) => {
+          return history.map(mapDbDataToPlayerHistory);
+        }),
+      );
+  }
+
+  public addNewWotHistoryDataRow(historyRow: PlayerHistory): Observable<void> {
+    return this.dbService.add(WOT_PLAYER_HISTORY_COLLECTION_NAME, historyRow).pipe(map(() => {}));
+  }
+  public addNewBlitzHistoryDataRow(historyRow: PlayerHistory): Observable<void> {
+    return this.dbService.add(BLITZ_PLAYER_HISTORY_COLLECTION_NAME, historyRow).pipe(map(() => {}));
+  }
 }
+
+const mapDbDataToPlayerHistory = (historyItem: any) =>
+  ({
+    accountId: +historyItem.accountId,
+    lastBattle: +historyItem.lastBattle,
+    gold: +historyItem.gold,
+    freeXp: +historyItem.freeXp,
+    credits: +historyItem?.credits,
+    battles: +historyItem.battles,
+    winRate: +historyItem.winRate,
+    damage: +historyItem.damage,
+    xp: +historyItem.xp,
+    survival: +historyItem.survival,
+    battleLifeTime: +historyItem.battleLifeTime,
+  }) as PlayerHistory;
