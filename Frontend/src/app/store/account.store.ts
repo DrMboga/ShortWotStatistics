@@ -77,7 +77,7 @@ export const AccountStore = signalStore(
           if (history?.length) {
             const wotPlayerHistoryLastRow = history
               .sort((a, b) => b.lastBattle - a.lastBattle)
-              .slice(0, 1);
+              .slice(0, 2);
             patchState(store, () => ({ wotPlayerHistoryLastRow }));
           }
         });
@@ -95,7 +95,7 @@ export const AccountStore = signalStore(
           if (history?.length) {
             const blitzPlayerHistoryLastRow = history
               .sort((a, b) => b.lastBattle - a.lastBattle)
-              .slice(0, 1);
+              .slice(0, 2);
             patchState(store, () => ({ blitzPlayerHistoryLastRow }));
           }
         });

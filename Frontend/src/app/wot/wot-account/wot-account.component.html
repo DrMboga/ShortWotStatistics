@@ -3,6 +3,6 @@
   [mastersCount]="tanksStore.mastersCount()"
 ></app-wot-player-achievements>
 <div class="account-overview">
-  <app-statistics-table [playerInfo]="wotPlayerPrivateInfo()"></app-statistics-table>
+  <app-statistics-table [playerInfo]="wotPlayerPrivateInfo()" [playerHistory]="wotPlayerHistory()"></app-statistics-table>
   <app-wot-player-tanks-list></app-wot-player-tanks-list>
 </div>

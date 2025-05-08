@@ -22,6 +22,13 @@ export class WotAccountComponent {
     return this.accountStore.wotPlayerPrivateInfo()!;
   });
 
+  wotPlayerHistory = computed(() => {
+    if (!this.accountStore.wotPlayerHistoryLastRow) {
+      return [];
+    }
+    return this.accountStore.wotPlayerHistoryLastRow()!;
+  });
+
   constructor() {
     effect(() => {
       if (

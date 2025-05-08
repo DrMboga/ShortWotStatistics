@@ -14,10 +14,19 @@
       <td>
         <div class="aligned">
           <img src="./assets/account/battle.png" alt=""/>
-           Battles count
+          Battles count
         </div>
       </td>
-      <td>{{ statistics.statistics.all.battles | number}}</td>
+      <td>
+        <div>
+          {{ statistics.statistics.all.battles | number }}
+          @if (battlesDiff()) {
+            <small style="color: green">
+              {{battlesDiff()! | historyItemSign}}{{ battlesDiff() }}
+            </small>
+          }
+        </div>
+      </td>
     </tr>
     @if (statistics.statistics.all.battles > 0) {
       <tr>
@@ -28,8 +37,15 @@
           </div>
         </td>
         <td>
-          {{ statistics.statistics.all.wins | number}}
-          (<span [style.color]="(100 * statistics.statistics.all.wins / statistics.statistics.all.battles) | scaleColor">{{ (100 * statistics.statistics.all.wins / statistics.statistics.all.battles) | number: '1.2-2' }}%</span>)
+          {{ statistics.statistics.all.wins | number }}
+          (<span
+          [style.color]="(100 * statistics.statistics.all.wins / statistics.statistics.all.battles) | scaleColor">{{ (100 * statistics.statistics.all.wins / statistics.statistics.all.battles) | number: '1.2-2' }}
+          %</span>)
+          @if(winRateDiff()) {
+            <small [style.color]="winRateDiff()! | historyItemColor">
+              {{winRateDiff()! | historyItemSign}}{{ winRateDiff() | number: '1.2-2' }}%
+            </small>
+          }
         </td>
       </tr>
       <tr>
@@ -40,7 +56,7 @@
           </div>
         </td>
         <td>
-          {{ statistics.statistics.all.losses | number}}
+          {{ statistics.statistics.all.losses | number }}
           ({{ (100 * statistics.statistics.all.losses / statistics.statistics.all.battles) | number: '1.2-2' }}%)
         </td>
       </tr>
@@ -53,7 +69,13 @@
         </td>
         <td>
           {{ statistics.statistics.all.survived_battles | number: '1.0-0' }}
-          ({{ 100 * (statistics.statistics.all.survived_battles / statistics.statistics.all.battles) | number: '1.0-0' }}%)
+          ({{ 100 * (statistics.statistics.all.survived_battles / statistics.statistics.all.battles) | number: '1.0-0' }}
+          %)
+          @if (survivalDiff()) {
+            <small [style.color]="survivalDiff()! | historyItemColor">
+              {{survivalDiff()! | historyItemSign}}{{ survivalDiff() | number: '1.2-2' }}%
+            </small>
+          }
         </td>
       </tr>
       <tr>
@@ -65,6 +87,11 @@
         </td>
         <td>
           {{ (statistics.statistics.all.damage_dealt / statistics.statistics.all.battles) | number: '1.0-0' }}
+          @if (damageDiff()) {
+            <small [style.color]="damageDiff()! | historyItemColor">
+              {{damageDiff()! | historyItemSign}}{{ damageDiff() | number: '1.0-0' }}
+            </small>
+          }
         </td>
       </tr>
       <tr>
@@ -76,6 +103,11 @@
         </td>
         <td>
           {{ (statistics.statistics.all.xp / statistics.statistics.all.battles) | number: '1.0-0' }}
+          @if (xpDiff()) {
+            <small [style.color]="xpDiff()! | historyItemColor">
+              {{xpDiff()! | historyItemSign}}{{ xpDiff() | number: '1.0-0' }}
+            </small>
+          }
         </td>
       </tr>
       @if (statistics.private; as privateData) {

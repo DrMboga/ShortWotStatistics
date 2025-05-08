@@ -16,4 +16,11 @@ export class BlitzAccountComponent {
     }
     return this.accountStore.blitzPlayerPrivateInfo()!;
   });
+
+  blitzPlayerHistory = computed(() => {
+    if (!this.accountStore.blitzPlayerHistoryLastRow) {
+      return [];
+    }
+    return this.accountStore.blitzPlayerHistoryLastRow()!;
+  });
 }
