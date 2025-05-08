@@ -11,10 +11,11 @@ import { IndexedDBService } from '../indexedDb/indexed-db.service';
 import { rxMethod } from '@ngrx/signals/rxjs-interop';
 import { exhaustMap, of, pipe, switchMap } from 'rxjs';
 import { tapResponse } from '@ngrx/operators';
-import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import { takeUntilDestroyed, toObservable } from '@angular/core/rxjs-interop';
 import { WargamingApiService } from '../services/wargaming-api.service';
 import { WotPlayerPersonalData } from '../model/wargaming/wotPlayerPersonalData';
 import { PlayerHistoryService } from '../services/player-history.service';
+import { PlayerHistory } from '../model/player-history';
 
 type AccountState = {
   applicationId: string;
@@ -25,6 +26,8 @@ type AccountState = {
   games: string[];
   wotPlayerPrivateInfo?: WotPlayerPersonalData;
   blitzPlayerPrivateInfo?: WotPlayerPersonalData;
+  wotPlayerHistoryLastRow: PlayerHistory[];
+  blitzPlayerHistoryLastRow: PlayerHistory[];
 };
 
 const initialState: AccountState = {
@@ -36,6 +39,8 @@ const initialState: AccountState = {
   games: [],
   wotPlayerPrivateInfo: undefined,
   blitzPlayerPrivateInfo: undefined,
+  wotPlayerHistoryLastRow: [],
+  blitzPlayerHistoryLastRow: [],
 };
 
 export const AccountStore = signalStore(
@@ -56,6 +61,42 @@ export const AccountStore = signalStore(
               accessTokenExpires: accountAuthInfo[0].accessTokenExpires,
               games: accountAuthInfo[0].games ?? [],
             }));
+          }
+        });
+      toObservable(store.accountId)
+        .pipe(
+          takeUntilDestroyed(),
+          switchMap(accountId => {
+            if (!accountId) {
+              return of(undefined);
+            }
+            return indexedDb.getWotPlayerHistory(+accountId);
+          }),
+        )
+        .subscribe(history => {
+          if (history?.length) {
+            const wotPlayerHistoryLastRow = history
+              .sort((a, b) => b.lastBattle - a.lastBattle)
+              .slice(0, 1);
+            patchState(store, () => ({ wotPlayerHistoryLastRow }));
+          }
+        });
+      toObservable(store.accountId)
+        .pipe(
+          takeUntilDestroyed(),
+          switchMap(accountId => {
+            if (!accountId) {
+              return of(undefined);
+            }
+            return indexedDb.getBlitzPlayerHistory(+accountId);
+          }),
+        )
+        .subscribe(history => {
+          if (history?.length) {
+            const blitzPlayerHistoryLastRow = history
+              .sort((a, b) => b.lastBattle - a.lastBattle)
+              .slice(0, 1);
+            patchState(store, () => ({ blitzPlayerHistoryLastRow }));
           }
         });
     },
