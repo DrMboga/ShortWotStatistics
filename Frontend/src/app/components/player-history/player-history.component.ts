@@ -1,4 +1,4 @@
-import { Component, inject, input } from '@angular/core';
+import { Component, effect, inject, input } from '@angular/core';
 import { toObservable, toSignal } from '@angular/core/rxjs-interop';
 import { map, mergeMap, of } from 'rxjs';
 import { IndexedDBService } from '../../indexedDb/indexed-db.service';
@@ -36,4 +36,16 @@ export class PlayerHistoryComponent {
   );
 
   history = toSignal(this.history$);
+
+  private winRateData: any = undefined;
+
+  constructor() {
+    effect(() => {
+      const historyData = this.history();
+      const labels = historyData?.map(h => new Date(h.lastBattle * 1000).toDateString()) ?? [];
+      const winRates = historyData?.map(h => h.winRate) ?? [];
+      console.log('winRates', winRates);
+      this.winRateData = winRates;
+    });
+  }
 }

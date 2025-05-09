@@ -1,0 +1,9 @@
+:host {
+
+  .chart {
+    position: relative;
+    width: 100%;
+    height: 150px;
+    margin: 10px;
+  }
+}
