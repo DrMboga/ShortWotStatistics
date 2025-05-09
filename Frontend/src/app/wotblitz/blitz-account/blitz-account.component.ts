@@ -1,10 +1,11 @@
 import { Component, computed, inject } from '@angular/core';
 import { AccountStore } from '../../store/account.store';
 import { StatisticsTableComponent } from '../../components/statistics-table/statistics-table.component';
+import { PlayerHistoryComponent } from '../../components/player-history/player-history.component';
 
 @Component({
   selector: 'app-blitz-account',
-  imports: [StatisticsTableComponent],
+  imports: [StatisticsTableComponent, PlayerHistoryComponent],
   templateUrl: './blitz-account.component.html',
   styleUrl: './blitz-account.component.css',
 })

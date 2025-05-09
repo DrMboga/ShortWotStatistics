@@ -1,0 +1,9 @@
+@if (history(); as history) {
+  <div class="mat-elevation-z8">
+    @for (historyItem of history; track historyItem.lastBattle) {
+      <p>
+        {{ historyItem.lastBattle * 1000 | date }} | {{ historyItem.battles }}
+      </p>
+    }
+  </div>
+}

@@ -1,6 +1,6 @@
 :host {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: flex-start;
   margin: 50px;
   gap: 5px;

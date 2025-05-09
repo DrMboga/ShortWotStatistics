@@ -4,10 +4,16 @@ import { StatisticsTableComponent } from '../../components/statistics-table/stat
 import { WotPlayerAchievementsComponent } from '../wot-player-achievements/wot-player-achievements.component';
 import { TanksStore } from '../../store/tanks.store';
 import { WotPlayerTanksListComponent } from '../wot-player-tanks-list/wot-player-tanks-list.component';
+import { PlayerHistoryComponent } from '../../components/player-history/player-history.component';
 
 @Component({
   selector: 'app-wot-account',
-  imports: [StatisticsTableComponent, WotPlayerAchievementsComponent, WotPlayerTanksListComponent],
+  imports: [
+    StatisticsTableComponent,
+    WotPlayerAchievementsComponent,
+    WotPlayerTanksListComponent,
+    PlayerHistoryComponent,
+  ],
   templateUrl: './wot-account.component.html',
   styleUrl: './wot-account.component.css',
 })
