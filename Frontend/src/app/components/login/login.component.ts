@@ -30,7 +30,7 @@ export class LoginComponent {
     if (this.applicationId) {
       const baseUri = window.location.origin;
       // Redirect to Wargaming login page
-      window.location.href = `https://api.worldoftanks.eu/wot/auth/login/?application_id=${this.applicationId}&redirect_uri=${baseUri}/login`;
+      window.location.href = `https://api.worldoftanks.eu/wot/auth/login/?application_id=${this.applicationId}&redirect_uri=${baseUri}/ShortWotStatistics/login`;
     }
   }
 }
