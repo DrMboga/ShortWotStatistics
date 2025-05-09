@@ -6,7 +6,7 @@ import { PlayerHistory } from '../../model/player-history';
 import { BaseChartDirective } from 'ng2-charts';
 import { chartOptions } from '../../helpers/chart-helper';
 
-const MAX_HISTORY_LENGTH = 10;
+const MAX_HISTORY_LENGTH = 6;
 
 const historyMap = map((history: PlayerHistory[]) =>
   history.sort((a, b) => b.lastBattle - a.lastBattle).slice(0, MAX_HISTORY_LENGTH),
