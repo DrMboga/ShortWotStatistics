@@ -19,9 +19,10 @@ jobs:
         with:
           github_access_token: ${{ secrets.GITHUB_TOKEN }}
           build_configuration: production
-          base_href: /TimeOrganizer/
+          angular_project_dir: Frontend
+          base_href: /ShortWotStatistics/
           deploy_branch: gh-pages
-          angular_dist_build_folder: dist/time-organizer/browser
+          angular_dist_build_folder: Frontend/dist/wot-statistics/browser
 
 permissions:
   contents: write
