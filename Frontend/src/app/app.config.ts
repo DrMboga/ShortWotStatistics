@@ -5,6 +5,7 @@ import { routes } from './app.routes';
 import { provideIndexedDb } from 'ngx-indexed-db';
 import { dbConfig } from './indexedDb/db-config';
 import { provideHttpClient } from '@angular/common/http';
+import { provideCharts, withDefaultRegisterables } from 'ng2-charts';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -12,5 +13,6 @@ export const appConfig: ApplicationConfig = {
     provideRouter(routes),
     provideIndexedDb(dbConfig),
     provideHttpClient(),
+    provideCharts(withDefaultRegisterables()),
   ],
 };

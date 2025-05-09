@@ -1,9 +1,11 @@
 @if (history(); as history) {
-  <div class="mat-elevation-z8">
-    @for (historyItem of history; track historyItem.lastBattle) {
-      <p>
-        {{ historyItem.lastBattle * 1000 | date }} | {{ historyItem.battles }}
-      </p>
-    }
+  <div class="mat-elevation-z8" style="position: relative; width: 350px; height: 200px; margin: 10px;">
+    <canvas baseChart [data]="winRateData" [options]="winRateOptions" [type]="'line'"></canvas>
+  </div>
+  <div class="mat-elevation-z8" style="position: relative; width: 350px; height: 200px; margin: 10px;">
+    <canvas baseChart [data]="damageData" [options]="damageOptions" [type]="'line'"></canvas>
+  </div>
+  <div class="mat-elevation-z8" style="position: relative; width: 350px; height: 200px; margin: 10px;">
+    <canvas baseChart [data]="xpData" [options]="xpOptions" [type]="'line'"></canvas>
   </div>
 }
