@@ -70,4 +70,25 @@ export class WotPlayerTanksListComponent {
       .reduce((a, b) => a + b, 0);
     return xp / this.battlesSum();
   });
+
+  avgSurvival = computed(() => {
+    if (this.battlesSum() === 0) {
+      return 0;
+    }
+    const survived = this.tanksList()
+      .map(t => t.all.survived_battles)
+      .reduce((a, b) => a + b, 0);
+    return (100 * survived) / this.battlesSum();
+  });
+
+  avgAccuracy = computed(() => {
+    const shots = this.tanksList()
+      .map(t => t.all.shots)
+      .reduce((a, b) => a + b, 0);
+    if (shots === 0) return 0;
+    const hits = this.tanksList()
+      .map(t => t.all.hits)
+      .reduce((a, b) => a + b, 0);
+    return (100 * hits) / shots;
+  });
 }
