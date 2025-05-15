@@ -14,7 +14,7 @@ const historyMap = map((history: PlayerHistory[]) =>
 
 const dateString = (date: number): string => {
   const dateDate = new Date(date);
-  return `${dateDate.getDate().toString().padStart(2, '0')}.${dateDate.getMonth().toString().padStart(2, '0')}.${dateDate.getFullYear()}`;
+  return `${dateDate.getDate().toString().padStart(2, '0')}.${(dateDate.getMonth() + 1).toString().padStart(2, '0')}.${dateDate.getFullYear()}`;
 };
 
 @Component({
